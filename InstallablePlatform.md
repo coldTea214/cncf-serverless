@@ -33,6 +33,10 @@ Installable Platform 是一些开源的 serverless 平台 or 增强组件。包�
 * [Kubeless](InstallablePlatform/Kubeless/Kubeless.md)
 * [OpenFaas](InstallablePlatform/OpenFaas/OpenFaas.md)
 
+Knative 目前还比较活跃，这里也展开说明一下：
+
+* [Knative](InstallablePlatform/Knative/Knative.md)
+
 参考文献：
 
 * [Application Scalability, Part 3: Knative and KEDA](https://www.polidea.com/blog/application-scalability-part-3-knative-and-keda/)
