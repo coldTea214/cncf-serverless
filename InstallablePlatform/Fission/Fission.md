@@ -83,7 +83,7 @@ timer-6565fbbccc-6btrg         1/1     Running   0          6m32s
 ### 验证
 
 ```
-$ fission env create --name nodejs --image fission/node-env:1.10.0 --version 3 --poolsize 1
+$ fission env create --name nodejs --image fission/node-env:1.10.0
 $ curl -LO https://raw.githubusercontent.com/fission/fission/master/examples/nodejs/hello.js
 $ fission fn create --name hello-js --env nodejs --code hello.js
 $ fission fn test --name hello-js
@@ -98,3 +98,153 @@ $ kubectl -n fission delete -f \
 $ kubectl delete ns fission
 $ kubectl delete pv fission-storage-pv
 ```
+
+# 架构
+
+安装完 Fission 之后，来梳理下安装的组件
+
+| pod | 容器 | 命令 | 源码 repo |
+|----|----|-----|--------|
+| buildermgr | buildermgr | fission-bundle --builderMgr ... | Fission |
+| controller | controller | fission-bundle --controllerPort ... | Fission |
+| executor | executor | fission-bundle --executorPort ... | Fission |
+| router | router | fission-bundle --routerPort ... | Fission |
+| storagesvc | storagesvc | fission-bundle --storageServicePort ... | Fission |
+
+注：
+
+* kubewatcher 和 timer 虽然缺省安装了，但不是 core 组件，暂不说明
+* 除此之外，函数生成的 pod 还自带一个 fetcher 容器，该容器也是 Fission repo 编译而来
+
+整体架构是：
+
+![architecture](./architecture.png)
+
+其中：
+
+* fission client 封装了网络调用
+* controller 处理函数相关对象的 crud，并转化为 k8s 里的 CRD 操作
+* router 负责处理函数的寻址、触发
+* buildermgr 处理函数编译相关工作
+* executor 负责函数实例化管理
+* storageSvc 负责存储函数代码的编译包
+
+直接对着架构图解读，比较抽象，在下一小节会结合实例来详细说明
+
+# 使用
+
+## 基本功能
+
+本小节会按照“从零开始写一个 go 函数”的流程，来串联所有组件，梳理功能
+
+### 创建 go 环境
+
+```
+$ fission env create --name go --image fission/go-env-1.12:1.10.0 --builder fission/go-builder-1.12:1.10.0
+```
+
+上述命令创建了 go 环境，指定了后续编译、运行的镜像信息。涉及的完整流程是：
+
+* fission client 向 controller 发起了创建 env 的请求
+* controller 收到请求后，创建了 environment CR
+
+	```
+	$ kubectl get environment
+	NAME     AGE
+	go       5m15s
+	```
+* buildermgr watch 到 environment CR 后，创建了 builder pod
+
+	```
+	$ kubectl -n fission-builder get pod
+	NAME                          READY   STATUS    RESTARTS   AGE
+	go-2598787-6d879c4b9f-n5654   2/2     Running   0          7m
+	```	
+* executor watch 到 environment CR 后，创建了 pod pool
+
+	```
+	$ kubectl -n fission-function get pod
+	NAME                                              READY   STATUS        RESTARTS   AGE
+	poolmgr-go-default-2598787-56b88b84d7-cv9b7       2/2     Running       0          18m
+	```
+
+注：
+
+* executor 有两种 pod 管理模式，pool manager（pod 资源池） 和 new deploy（每次新建 pod）。缺省是 pool，本流程解读都会以 pool 来说明
+	
+### 编写 go 代码
+
+```
+$ cat hello.go
+package main
+
+import (
+	"net/http"
+)
+
+func Hello(w http.ResponseWriter, r *http.Request) {
+	msg := "hello, world!\n"
+	w.Write([]byte(msg))
+}
+```
+
+fission go 代码的编写比较常规，没什么特殊要求，接口参数保持规范即可
+
+### 创建函数
+
+```
+$ fission fn create --name hello-go --env go --src hello.go --entrypoint Hello
+```
+
+上述命令指定 go env 以上述代码创建了 fission 函数。涉及的完整流程是：
+
+* fission client 向 controller 发起了创建 fn 的请求
+* controller 收到请求后，创建了 function CR 和 package CR
+
+	```
+	# 用全名是因为跟 Kubeless function 重名，同时安装时，让命令无二意性
+	$ kubectl get function.fission.io
+	NAME       AGE
+	hello-go   5m
+	$ kubectl get package
+	NAME                                             AGE
+	hello-go-b69975a4-913b-45e7-928b-de40c23332b3    5m18s
+	```
+	其中，package 里存储了 hello.go 的源码
+* buildmgr watch 到 package CR 后，向上面创建的 builder pod 发起编译请求
+* builder container 从 package 里获取源码，开始编译
+* builder container 编译完成后，通知 fetcher container 将编译包上传至 storagesvc
+
+	```
+	# 实际上最终也就上传到了我们前面创建 pv 所指定的目录
+	$ du -sh /mnt/fission-storage/fission-functions/*
+	4.7M	/mnt/fission-storage/fission-functions/f8903b8b-5a34-4fc7-8f4a-ed93bc61ea95
+	```
+* builder container 将编译日志和编译包的 url 等信息都存储于 package 中
+
+	```
+	# 可以查看编译过程具体干了些啥
+	$ kubectl get package hello-go-b69975a4-913b-45e7-928b-de40c23332b3 -o yaml
+	...
+	+ go build -buildmode=plugin -i -o /packages/hello-go-b69975a4-913b-45e7-928b-de40c23332b3-kz1zbh-xmguf3 .
+	...
+	```
+	
+### 触发函数
+
+```
+$ fission fn test --name hello-go
+hello, world!
+```
+
+上述命令测试了刚刚创建的函数。涉及的完整流程是：
+
+* fission client 向 router 发起了触发 fn 的请求
+* router 收到请求后，请求 executor 提供函数地址
+* executor 从 pool 中选出一个 ready 的 pod，通知 pod 里的 fetch 容器
+* fetch 容器从 storagesvc 中获取编译包，取完通知 env 容器
+* env 容器加载函数，加载完成返回函数地址给 router
+* router 返回函数地址到 fission client
+* fission client 发起函数调用请求
+
+
