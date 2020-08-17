@@ -67,3 +67,87 @@ hello, world!
 $ kubectl delete -f https://github.com/kubeless/kubeless/releases/download/v1.0.7/kubeless-v1.0.7.yaml
 $ kubectl delete ns kubeless
 ```
+
+# 架构
+
+安装完 Kubeless 之后，来梳理下安装的组件
+
+| pod | 容器 | 命令 | 源码 repo |
+|----|----|-----|--------|
+| controller | kubeless-function-controller | kubeless-function-controller | Kubeless |
+| | http-trigger-controller | http-controller | [http-trigger](https://github.com/kubeless/http-trigger/tree/v1.0.2) |
+| | cronjob-trigger-controller | cronjob-controller | [cronjob-trigger](https://github.com/kubeless/cronjob-trigger/tree/v1.0.3) |
+
+两个 trigger 基本上名字就能说明它们的功能，所以 Kubeless 基本上所有逻辑都是在 controller 里实现的，也就没什么架构好说了
+
+# 使用
+
+## 基本功能
+
+本小节会按照“从零开始写一个 go 函数”的流程，来梳理功能
+
+### 编写 go 函数
+
+```
+$ cat go.mod
+module function
+
+go 1.14
+$ cat hello.go
+package kubeless
+
+import (
+	"github.com/kubeless/kubeless/pkg/functions"
+)
+
+func Hello(event functions.Event, context functions.Context) (string, error) {
+	return "hello world!", nil
+}
+```
+
+在 Kubeless 框架下写 go 代码，有两个基本要求：
+
+* 必须带一个 go.mod（理论上其实没这必要，但 Kubeless 部分代码写死了）
+* 接口实现依赖 ```github.com/kubeless/kubeless/pkg/functions``` 的引入
+
+### 部署函数
+
+```
+$ kubeless function deploy hello-go --runtime go1.14 --handler hello.Hello --from-file hello.go --dependencies go.mod
+```
+
+上述命令指定 runtime 部署了 go 函数。涉及的完整流程是：
+
+* kubeless client 创建了 function CR
+
+	```
+	# 用全名是因为跟 Fission function 重名，同时安装时，让命令无二意性
+	$ kubectl get function.kubeless.io
+	NAME       AGE
+	hello-go   2m4s
+	```
+	function CR 里存储了包括源码在内的所有命令输入信息
+* controller watch 到 function CR 后，创建 configmap 和函数 pod
+
+	```
+	$ kubectl get cm
+	NAME       DATA   AGE
+	hello-go   3      2m45s
+	$ kubectl get pod
+	NAME                        READY   STATUS       RESTARTS   AGE
+	hello-go-5f4f76bd79-jnqnc   1/1     Running      0          2m49s
+	```
+	configmap 从 function 获取，并存储了代码和依赖相关信息。pod 除了运行函数的 runtime container 外，还有两个 init container：prepare 和 compile。prepare 从 configmap 挂载卷里拷贝代码等，compile 负责编译
+	
+### 触发函数
+
+```
+$ kubeless function call hello-go
+hello world!
+```
+
+上述命令调用了刚刚创建的函数。涉及的完整流程是：
+
+* kubeless client 根据函数名查询同名 service，获取地址
+* kubeless client 调用函数
+	
