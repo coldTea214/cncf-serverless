@@ -83,3 +83,156 @@ hello world!
 $ kubectl delete -f ./yaml/
 $ kubectl delete -f namespaces.yml
 ```
+
+# 架构
+
+安装完 OpenFaas 之后，来梳理下安装的组件
+
+| pod | 容器 | 命令 | 源码 repo |
+|----|----|-----|--------|
+| alertmanager | alertmanager | alertmanager --config.file ... | [alertmanager](https://github.com/prometheus/alertmanager) |
+| basic-auth-plugin | basic-auth-plugin | handler | OpenFaas |
+| faas-idler | faas-idler | faas-idler -dry-run=true | [faas-idler](https://github.com/openfaas-incubator/faas-idler/tree/0.3.0) |
+| gateway | gateway | gateway | OpenFaas |
+| | faas-netes | faas-netes | faas-netes |
+| nats | nats | nats-streaming-server | [nats-streaming-server](https://github.com/nats-io/nats-streaming-server) |
+| prometheus | prometheus | prometheus --config ... | [prometheus](https://github.com/prometheus/prometheus) |
+| queue-worker | queue-worker | app | [nats-queue-worker](https://github.com/openfaas/nats-queue-worker) |
+
+注：
+
+* faas-idler 缺省安装情况下，是以 dry-run 运行的，也就是并没有在工作
+* basic-auth 是个简单的鉴权实现，这里就不再详细说明了
+
+整体架构如下：
+
+![architecture](./architecture.png)
+
+[图片来源](https://github.com/openfaas/faas-netes/tree/0.12.2)
+
+其中：
+
+* alertmanager、nats、prometheus 是社区其它项目组件
+* queue-worker 是配合 nas 做异步函数 invoke 用的
+
+而 k8s 体系下 faas 的相关实现，主要都是在 faas-netes 中实现的
+
+# 使用
+
+## 基本功能
+
+本小节会按照“从零开始写一个 go 函数”的流程，来梳理功能
+
+### 创建函数
+
+```
+$ faas-cli new hello-go --lang go
+```
+
+上述命令创建了一个 go 函数。实际完成的工作是：从[模板库](https://github.com/openfaas/templates.git)里获取模板到当前目录
+
+```
+$ tree -L 2
+.
+├── hello-go
+│   └── handler.go
+├── hello-go.yml
+└── template
+    ├── csharp
+    ├── csharp-armhf
+    ├── dockerfile
+    ├── go
+    ├── go-armhf
+    ├── java11
+    ├── java11-vert-x
+    ├── java8
+    ├── node
+    ├── node12
+    ├── node-arm64
+    ├── node-armhf
+    ├── php7
+    ├── python
+    ├── python3
+    ├── python3-armhf
+    ├── python3-debian
+    ├── python-armhf
+    └── ruby
+```
+	
+### 填充 go 函数
+
+单就我们本次流程而论，可以什么都不改。缺省模板代码：
+
+```
+$ cat hello-go/handler.go
+package function
+
+import (
+	"fmt"
+)
+
+// Handle a serverless request
+func Handle(req []byte) string {
+	return fmt.Sprintf("Hello, Go. You said: %s", string(req))
+}
+```
+
+### 编译 go 函数
+
+```
+$ faas-cli build -f hello-go.yml
+```
+
+上述命令本质上就是 docker build，最终生成一个含有 fwatchdog（一个 go web server） 和 go 代码编译包的工作镜像
+
+### 推送 go 镜像
+
+```
+$ faas-cli push -f hello-go.yml
+```
+
+上述命令本质上就是 docker push
+
+### 部署 go 函数
+
+```
+$ faas-cli deploy -f hello-go.yml
+```
+
+上述命令将刚刚编译、推送好的 docker 镜像部署到 k8s。涉及的完整流程是：
+
+* faas-cli 发送 deploy 请求到 gateway
+* gateway 将 deploy 请求转发给 faas-netes
+* faas-netes 创建对应的 deployment、service
+
+也只有到了这一步，faas-cli 才能看到函数
+
+```
+$ kubectl -n openfaas-fn get deploy
+NAME       READY   UP-TO-DATE   AVAILABLE   AGE
+hello-go   1/1     1            1           11m
+$ faas-cli list
+Function                      	Invocations    	Replicas
+hello-go                      	1              	1
+```
+
+这是 OpenFaas 与 Fission、Kubeless 不同的一点：它没有引入 CRD。faas-cli list 命令本质上也依赖从 deploy 获取信息，换句话说删除 deploy，list 返回也会变为空。而另外两个平台，则会根据 CR，重新创建 deploy
+
+注：没有 CRD 是缺省模式，faas-netes 也追加了一种面向 CRD 的实现
+
+### 触发 go 函数
+
+```
+$ echo -n "hello world!" | faas-cli invoke hello-go
+Hello, Go. You said: hello world!
+```
+
+上述命令完成了 go 函数的触发。涉及的完整流程是：
+
+* faas-cli 发送 invoke 命令到 gateway
+* gateway 从 faas-netes 获取函数地址
+* gateway 调用函数
+* pod 里的 fwatchdog 进程收到请求，加载并运行用户函数
+
+
+
