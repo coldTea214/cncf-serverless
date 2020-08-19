@@ -151,3 +151,12 @@ hello world!
 * kubeless client 根据函数名查询同名 service，获取地址
 * kubeless client 调用函数
 	
+## 函数扩缩
+
+Kubeless 需要主动创建扩缩规则并关联函数
+
+```
+kubeless autoscale create hello-go --min 1 --max 3 --value 50
+```
+
+上述命令本质上就是创建了一个 HPA，Kubeless 完全依赖 HPA 的能力，因此无法配置 min 为0

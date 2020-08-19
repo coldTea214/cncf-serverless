@@ -234,5 +234,13 @@ Hello, Go. You said: hello world!
 * gateway 调用函数
 * pod 里的 fwatchdog 进程收到请求，加载并运行用户函数
 
+## 函数扩缩
 
+OpenFaas 提供了多种扩缩实现：
 
+* 基于 AlertManager 的实现
+* 基于 HPA 的实现
+
+除此之外，gateway 提供了 "scale up from zero" 能力，faas-idler 组件提供了 "scale down to zero" 的能力
+
+OpenFaas 的扩缩配置比较分散，[参考文档](https://docs.openfaas.com/architecture/autoscaling/)

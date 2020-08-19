@@ -170,7 +170,7 @@ $ fission env create --name go --image fission/go-env-1.12:1.10.0 --builder fiss
 
 注：
 
-* executor 有两种 pod 管理模式，pool manager（pod 资源池） 和 new deploy（每次新建 pod）。缺省是 pool，本流程解读都会以 pool 来说明
+* executor 有两种 pod 管理模式，[PoolMgr](https://docs.fission.io/docs/usage/executor/#poolmgr-pool-based-executor)（pod 资源池） 和 [NewDeploy](https://docs.fission.io/docs/usage/executor/#newdeploy-new-deployment-executor)（每次新建 pod）。缺省是 pool，本流程解读都会以 pool 来说明
 	
 ### 编写 go 代码
 
@@ -247,4 +247,13 @@ hello, world!
 * router 返回函数地址到 fission client
 * fission client 发起函数调用请求
 
+## 函数扩缩
 
+在 PoolMgr 模式下，同一个函数最多实例化 pool size 个 pod，长时间没有访问时，pod 会销毁，除此之外，并没有其它的扩缩容能力。Fission 的自动扩缩，主要是针对 NewDeploy 模式
+
+```
+fission fn create --name hello-go-deploy --env go --src hello.go --entrypoint Hello --executortype newdeploy \
+	--minscale 0 --maxscale 3 --targetcpu 50
+```
+
+当上述函数第一次被触发时，会创建一个 HPA，实际的伸缩能力也是由 HPA 提供的。不过，HPA 并不具备缩容到0的能力，"scale up from zero" 和 "scale down to zero" 的能力是 executor 补足的
