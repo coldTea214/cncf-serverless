@@ -252,8 +252,32 @@ hello, world!
 在 PoolMgr 模式下，同一个函数最多实例化 pool size 个 pod，长时间没有访问时，pod 会销毁，除此之外，并没有其它的扩缩容能力。Fission 的自动扩缩，主要是针对 NewDeploy 模式
 
 ```
-fission fn create --name hello-go-deploy --env go --src hello.go --entrypoint Hello --executortype newdeploy \
+$ fission fn create --name hello-go-deploy --env go --src hello.go --entrypoint Hello --executortype newdeploy \
 	--minscale 0 --maxscale 3 --targetcpu 50
 ```
 
 当上述函数第一次被触发时，会创建一个 HPA，实际的伸缩能力也是由 HPA 提供的。不过，HPA 并不具备缩容到0的能力，"scale up from zero" 和 "scale down to zero" 的能力是 executor 补足的
+
+## 函数触发
+
+上述小节以命令行的形式，手工触发函数调用，而在生产环境，Fission 提供了以下几种触发方式：
+
+* http trigger
+
+	```
+	$ fission httptrigger create --name hello --url /hello --method GET --function hello-go
+	trigger 'hello' created
+	# 通过以下地址触发
+	http://<router URL>:<port>/hello
+	```
+* message queue trigger
+
+	Fission 支持多种 message queue，包括：NATS、Kafka、KEDA，不过因为需要额外安装组件，这里就不再演示了
+* timer trigger
+
+	```
+	$ fission timer create --name minute --function hello-go --cron "*/1 * * * *"
+	trigger 'minute' created
+	Current Server Time: 	2020-08-19T12:59:43Z
+	Next 1 invocation: 	2020-08-19T13:00:43Z
+	```

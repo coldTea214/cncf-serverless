@@ -244,3 +244,28 @@ OpenFaas 提供了多种扩缩实现：
 除此之外，gateway 提供了 "scale up from zero" 能力，faas-idler 组件提供了 "scale down to zero" 的能力
 
 OpenFaas 的扩缩配置比较分散，[参考文档](https://docs.openfaas.com/architecture/autoscaling/)
+
+## 函数触发
+
+上述小节以命令行的形式，手工触发函数调用，而在生产环境，OpenFaas 提供了以下几种触发方式：
+
+* cron
+
+	类似 Fission timer trigger，在 k8s 体系下通过 cronjob 实现，在其它平台提供了 cron connector
+* http/webhooks
+
+	缺省支持，通过以下地址触发
+
+	```
+	https://<gateway URL>:<port>/function/<function name>
+	```
+* async/nats streaming
+
+	缺省支持，通过以下地址触发
+
+	```
+	https://<gateway URL>:<port>/async-function/<function name>
+	```
+* 自定义 trigger
+
+	支持自定义 connector，监控自己关心的事件源，通过调用 gateway 来触发函数。OpenFaas 也累积了一些开发好的 connector，包括对接 AWS 等商业产品、redis 等开源产品的实现

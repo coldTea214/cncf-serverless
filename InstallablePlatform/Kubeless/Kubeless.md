@@ -156,7 +156,28 @@ hello world!
 Kubeless 需要主动创建扩缩规则并关联函数
 
 ```
-kubeless autoscale create hello-go --min 1 --max 3 --value 50
+$ kubeless autoscale create hello-go --min 1 --max 3 --value 50
 ```
 
 上述命令本质上就是创建了一个 HPA，Kubeless 完全依赖 HPA 的能力，因此无法配置 min 为0
+
+## 函数触发
+
+上述小节以命令行的形式，手工触发函数调用，而在生产环境，Kubeless 提供了以下几种触发方式：
+
+* http trigger
+
+	与 Fission http trigger 类似，不过因为 Kubeless 仅有 controller 组件，所以依赖部署 ingress 来提供 http path 挂载，这里就不再演示了
+
+* cronjob trigger
+
+	与 Fission timer trigger 类似
+
+	```
+	$ kubeless trigger cronjob create minute --function hello-go --schedule "*/1 * * * *"
+	```
+* pubsub trigger
+
+	与 Fission message queue trigger 类似，不过仅支持 Kafka，这里不再演示
+
+
