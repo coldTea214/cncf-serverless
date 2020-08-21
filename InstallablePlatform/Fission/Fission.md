@@ -281,3 +281,12 @@ $ fission fn create --name hello-go-deploy --env go --src hello.go --entrypoint 
 	Current Server Time: 	2020-08-19T12:59:43Z
 	Next 1 invocation: 	2020-08-19T13:00:43Z
 	```
+
+## workflow
+
+[fission-workflows](https://github.com/fission/fission-workflows/tree/0.6.0) 是用于编排函数执行顺序的子项目，[参考文档](https://docs.fission.io/docs/workflows/)
+
+不过，这个项目应该是凉了，最新的 release 0.6.0 是18年发布的，安装、使用各种问题：
+
+* 如安装时，helm 里使用的 jaegertracing/jaeger-agent 是 latest 镜像，跟启动参数已经不兼容了，可以手工替换成 1.8.2 版本
+* 如使用时，参考文档案例跑不通，相关的 [issue](https://github.com/fission/fission-workflows/issues/250) 无人处理

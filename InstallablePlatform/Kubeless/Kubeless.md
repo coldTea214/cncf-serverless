@@ -1,4 +1,4 @@
-本文基于 [Kubeless](https://github.com/kubeless/kubeless/tree/v1.0.7) 1.0.7版本
+本文基于 [Kubeless](https://github.com/kubeless/kubeless/tree/v1.0.7) v1.0.7版本
 
 [官方文档](https://kubeless.io/docs/quick-start/)
 
