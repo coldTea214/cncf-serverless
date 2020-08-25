@@ -73,8 +73,8 @@ queue-worker-6c95cf8664-nm4sb        1/1     Running   0          2m28s
 $ export OPENFAAS_URL=http://127.0.0.1:31112
 $ faas-cli login --password admin
 $ faas-cli store deploy figlet
-$ echo "hello world!" | faas-cli invoke figlet
-hello world!
+$ echo "hello, world!" | faas-cli invoke figlet
+hello, world!
 ```
 
 ## 卸载
@@ -225,8 +225,8 @@ hello-go                      	1              	1
 ### 触发 go 函数
 
 ```
-$ echo -n "hello world!" | faas-cli invoke hello-go
-Hello, Go. You said: hello world!
+$ echo -n "hello, world!" | faas-cli invoke hello-go
+Hello, Go. You said: hello, world!
 ```
 
 上述命令完成了 go 函数的触发。涉及的完整流程是：
