@@ -117,6 +117,12 @@ $ kubectl delete -f namespaces.yml
 
 而 k8s 体系下 faas 的相关实现，主要都是在 faas-netes 中实现的
 
+# 概念
+
+与 Fission 和 Kubeless 不同，OpenFaas 是从 docker 社区诞生的项目，所以最初的设计是面向过程式的，并没有引入 CRD
+
+注：没有 CRD 当前是缺省模式，faas-netes 也追加了一种面向 CRD 的实现
+
 # 使用
 
 ## 基本功能
@@ -205,7 +211,7 @@ $ faas-cli deploy -f hello-go.yml
 * gateway 将 deploy 请求转发给 faas-netes
 * faas-netes 创建对应的 deployment、service
 
-也只有到了这一步，faas-cli 才能看到函数
+也只有到了这一步，faas-cli 才能看到函数（缺省模式下）。因为没有引入 CRD，faas-cli list 命令本质上也依赖从 deploy 获取信息，换句话说删除 deploy，list 返回也会变为空。而另外两个平台，则会根据 CR，重新创建 deploy
 
 ```
 $ kubectl -n openfaas-fn get deploy
@@ -215,10 +221,6 @@ $ faas-cli list
 Function                      	Invocations    	Replicas
 hello-go                      	1              	1
 ```
-
-这是 OpenFaas 与 Fission、Kubeless 不同的一点：它没有引入 CRD。faas-cli list 命令本质上也依赖从 deploy 获取信息，换句话说删除 deploy，list 返回也会变为空。而另外两个平台，则会根据 CR，重新创建 deploy
-
-注：没有 CRD 是缺省模式，faas-netes 也追加了一种面向 CRD 的实现
 
 ### 触发 go 函数
 

@@ -129,7 +129,18 @@ $ kubectl delete pv fission-storage-pv
 * executor 负责函数实例化管理
 * storageSvc 负责存储函数代码的编译包
 
-直接对着架构图解读，比较抽象，在下一小节会结合实例来详细说明
+直接对着架构图解读，比较抽象，在使用小节会结合实例来详细说明
+
+# 概念
+
+Fission 引入了 environment、package、function、trigger 四类 CRD。其中：
+
+* environment 记录了函数运行环境、编译环境相关的信息
+* package 记录了函数源码、编译包相关的信息
+* function 记录了函数运行相关的信息
+* trigger 记录了函数触发相关的信息
+
+在使用小节会结合实例来详细说明
 
 # 使用
 

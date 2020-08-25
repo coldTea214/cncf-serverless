@@ -80,6 +80,15 @@ $ kubectl delete ns kubeless
 
 两个 trigger 基本上名字就能说明它们的功能，所以 Kubeless 基本上所有逻辑都是在 controller 里实现的，也就没什么架构好说了
 
+# 概念
+
+Kubeless 引入了 function、trigger 两类 CRD。其中：
+
+* function 记录了函数运行环境、源码、接口相关的信息
+* trigger 记录了函数触发相关的信息
+
+在使用小节会结合实例来详细说明
+
 # 使用
 
 ## 基本功能
