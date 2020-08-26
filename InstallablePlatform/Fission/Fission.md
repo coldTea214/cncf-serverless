@@ -269,6 +269,10 @@ $ fission fn create --name hello-go-deploy --env go --src hello.go --entrypoint 
 
 当上述函数第一次被触发时，会创建一个 HPA，实际的伸缩能力也是由 HPA 提供的。不过，HPA 并不具备缩容到0的能力，"scale up from zero" 和 "scale down to zero" 的能力是 executor 补足的
 
+## 冷启动
+
+Fission、Kubeless、OpenFaas 3个 faas 实现里，Fission 是唯一一个有冷启动优化的，也就是 PoolMgr 模式，省去了镜像拉取、容器启动的时间。而 Kubeless 直接没有提及，OpenFaas 只有最佳实践的建议，也就是不要配置扩缩容时，最小副本数低于1
+
 ## 函数触发
 
 上述小节以命令行的形式，手工触发函数调用，而在生产环境，Fission 提供了以下几种触发方式：
