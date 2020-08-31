@@ -1,3 +1,5 @@
+[官网地址](https://www.huaweicloud.com/en-us/product/functionstage.html)
+
 华为 FunctionStage 提供的功能包括：
 
 * 函数管理：在线代码编辑 + 上传函数 zip 包 + 通过 OBS 管理函数 zip 包

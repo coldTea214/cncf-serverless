@@ -1,3 +1,5 @@
+[官网地址](https://aws.amazon.com/cn/lambda/)
+
 AWS Lambda 提供的功能包括（感觉像是机翻的）：
 
 * 用自定义逻辑扩展其他 AWS 服务：

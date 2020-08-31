@@ -1,3 +1,5 @@
+[官网地址](https://azure.microsoft.com/en-us/services/functions/)
+
 Azure 提供的功能包括：
 
 * 根据工作负载量自动灵活地缩放，将重点放在增值而不是基础结构管理上

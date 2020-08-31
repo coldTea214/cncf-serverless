@@ -1,0 +1,504 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>Dapr · cncf-serverless 学习笔记</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        <meta name="author" content="coldTea214">
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="Serverless.html" />
+    
+    
+    <link rel="prev" href="../Framework.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    前言
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="../Tools.html">
+            
+                <a href="../Tools.html">
+            
+                    
+                    Tools
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="../Security.html">
+            
+                <a href="../Security.html">
+            
+                    
+                    Security
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="../Framework.html">
+            
+                <a href="../Framework.html">
+            
+                    
+                    Framework
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter active" data-level="1.4.1" data-path="Dapr.html">
+            
+                <a href="Dapr.html">
+            
+                    
+                    Dapr
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.2" data-path="Serverless.html">
+            
+                <a href="Serverless.html">
+            
+                    
+                    Serverless
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="../HostedPlatform.html">
+            
+                <a href="../HostedPlatform.html">
+            
+                    
+                    Hosted Platform
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.5.1" data-path="../HostedPlatform/Alibaba.html">
+            
+                <a href="../HostedPlatform/Alibaba.html">
+            
+                    
+                    Alibaba Cloud Function Compute
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.2" data-path="../HostedPlatform/AWS.html">
+            
+                <a href="../HostedPlatform/AWS.html">
+            
+                    
+                    AWS Lambda
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.3" data-path="../HostedPlatform/Azure.html">
+            
+                <a href="../HostedPlatform/Azure.html">
+            
+                    
+                    Azure Functions
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.4" data-path="../HostedPlatform/Google.html">
+            
+                <a href="../HostedPlatform/Google.html">
+            
+                    
+                    Google Cloud Functions
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.5" data-path="../HostedPlatform/Huawei.html">
+            
+                <a href="../HostedPlatform/Huawei.html">
+            
+                    
+                    Huawei FunctionStage
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.6" data-path="../HostedPlatform/Tencent.html">
+            
+                <a href="../HostedPlatform/Tencent.html">
+            
+                    
+                    Tencent Cloud Serverless Cloud Function
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" data-path="../InstallablePlatform.html">
+            
+                <a href="../InstallablePlatform.html">
+            
+                    
+                    Installable Platform
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.6.1" data-path="../InstallablePlatform/OpenWhisk/OpenWhisk.html">
+            
+                <a href="../InstallablePlatform/OpenWhisk/OpenWhisk.html">
+            
+                    
+                    Apache OpenWhisk
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.2" data-path="../InstallablePlatform/Fission/Fission.html">
+            
+                <a href="../InstallablePlatform/Fission/Fission.html">
+            
+                    
+                    Fission
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.3" data-path="../InstallablePlatform/Kubeless/Kubeless.html">
+            
+                <a href="../InstallablePlatform/Kubeless/Kubeless.html">
+            
+                    
+                    Kubeless
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.4" data-path="../InstallablePlatform/OpenFaas/OpenFaas.html">
+            
+                <a href="../InstallablePlatform/OpenFaas/OpenFaas.html">
+            
+                    
+                    OpenFaas
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.5" data-path="../InstallablePlatform/Knative/Knative.html">
+            
+                <a href="../InstallablePlatform/Knative/Knative.html">
+            
+                    
+                    Knative
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >Dapr</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="&#x6982;&#x8FF0;">&#x6982;&#x8FF0;</h1>
+<p><a href="https://github.com/dapr/dapr" target="_blank">dapr</a> &#x662F;&#x5FAE;&#x8F6F;19&#x5E74;6&#x6708;&#x4E3B;&#x5BFC;&#x5F00;&#x6E90;&#x7684;&#x9879;&#x76EE;</p>
+<p>&#x7B80;&#x5355;&#x6765;&#x8BF4;&#xFF0C;dapr &#x4EE5;&#x8FDB;&#x7A0B;&#x6216; sidecar &#x5BB9;&#x5668;&#x5F62;&#x5F0F;&#x90E8;&#x7F72;&#xFF0C;&#x901A;&#x8FC7; sdk &#x5C01;&#x88C5;&#x4E86; http&#x3001;grpc &#x63A5;&#x53E3;&#xFF0C;&#x5BF9;&#x5916;&#x63D0;&#x4F9B;&#x4E86;&#x5B9E;&#x73B0;&#x5FAE;&#x670D;&#x52A1;&#x6240;&#x9700;&#x7684;&#x4E00;&#x7CFB;&#x5217;&#x529F;&#x80FD;&#xFF08;best practice building blocks&#xFF09;&#xFF0C;&#x5982;&#x4E8B;&#x4EF6;&#x9A71;&#x52A8;&#x3001;&#x72B6;&#x6001;&#x7BA1;&#x7406;&#x7B49;&#x3002;dapr &#x9879;&#x76EE;&#x7531;&#x793E;&#x533A;&#x9A71;&#x52A8;&#x3001;&#x5E73;&#x53F0;&#x65E0;&#x5173;&#x3001;&#x8BED;&#x8A00;&#x65E0;&#x5173;&#xFF0C;&#x540C;&#x65F6;&#x6027;&#x80FD;&#x597D;&#x3001;&#x8F7B;&#x91CF;&#xFF0C;&#x4E5F;&#x80FD;&#x7528;&#x4E8E; iot &#x548C; edge &#x573A;&#x666F;</p>
+<p>&#x5F53;&#x524D;&#x63D0;&#x4F9B;&#x7684;&#x529F;&#x80FD;&#x6709;&#xFF1A;</p>
+<ul>
+<li>&#x652F;&#x6301;&#x53EF;&#x9009;&#x4F9B;&#x5E94;&#x5546;&#x7684;&#x4E8B;&#x4EF6;&#x9A71;&#x52A8; pub-sub &#x7CFB;&#x7EDF;&#xFF0C;&#x63D0;&#x4F9B;&#x201C;&#x81F3;&#x5C11;&#x4E00;&#x6B21;&#x201D;&#x8BED;&#x4E49;</li>
+<li>&#x652F;&#x6301;&#x53EF;&#x9009;&#x4F9B;&#x5E94;&#x5546;&#x7684;&#x8F93;&#x5165;&#x3001;&#x8F93;&#x51FA;&#x7ED1;&#x5B9A;</li>
+<li>&#x652F;&#x6301;&#x53EF;&#x9009; data stores &#x7684;&#x72B6;&#x6001;&#x7BA1;&#x7406;</li>
+<li>&#x670D;&#x52A1;&#x5230;&#x670D;&#x52A1;&#x7684;&#x53D1;&#x73B0;&#x548C;&#x8C03;&#x7528;</li>
+<li>&#x53EF;&#x9009;&#x7684;&#x6709;&#x72B6;&#x6001;&#x6A21;&#x578B;&#xFF1A;Strong/Eventual consistency, First-write/Last-write wins</li>
+<li>&#x8DE8;&#x5E73;&#x53F0;&#x7684; virtual actors</li>
+<li>&#x5BC6;&#x94A5;&#x7BA1;&#x7406;</li>
+<li>&#x9650;&#x6D41;</li>
+<li>&#x53EF;&#x89C2;&#x6D4B;</li>
+</ul>
+<h1 id="&#x53C2;&#x8003;&#x6587;&#x732E;">&#x53C2;&#x8003;&#x6587;&#x732E;</h1>
+<ul>
+<li><a href="https://www.infoq.cn/article/ygNxYaTIxdBjejcyjv8Y" target="_blank">&#x91CD;&#x78C5;&#xFF01;&#x5FAE;&#x8F6F;&#x5F00;&#x6E90;&#x5FAE;&#x670D;&#x52A1;&#x6784;&#x5EFA;&#x8F6F;&#x4EF6; Dapr</a></li>
+</ul>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="../Framework.html" class="navigation navigation-prev " aria-label="Previous page: Framework">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="Serverless.html" class="navigation navigation-next " aria-label="Next page: Serverless">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"Dapr","level":"1.4.1","depth":2,"next":{"title":"Serverless","level":"1.4.2","depth":2,"path":"Framework/Serverless.md","ref":"./Framework/Serverless.md","articles":[]},"previous":{"title":"Framework","level":"1.4","depth":1,"path":"Framework.md","ref":"./Framework.md","articles":[{"title":"Dapr","level":"1.4.1","depth":2,"path":"Framework/Dapr.md","ref":"./Framework/Dapr.md","articles":[]},{"title":"Serverless","level":"1.4.2","depth":2,"path":"Framework/Serverless.md","ref":"./Framework/Serverless.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":["livereload"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"coldTea214","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"Introduction.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"cncf-serverless 学习笔记","gitbook":"*"},"file":{"path":"Framework/Dapr.md","mtime":"2020-08-12T09:09:38.516Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-08-31T10:29:57.837Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-livereload/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+

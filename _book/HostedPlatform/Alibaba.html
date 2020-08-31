@@ -1,0 +1,511 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>Alibaba Cloud Function Compute · cncf-serverless 学习笔记</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        <meta name="author" content="coldTea214">
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="AWS.html" />
+    
+    
+    <link rel="prev" href="../HostedPlatform.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    前言
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="../Tools.html">
+            
+                <a href="../Tools.html">
+            
+                    
+                    Tools
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="../Security.html">
+            
+                <a href="../Security.html">
+            
+                    
+                    Security
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="../Framework.html">
+            
+                <a href="../Framework.html">
+            
+                    
+                    Framework
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.1" data-path="../Framework/Dapr.html">
+            
+                <a href="../Framework/Dapr.html">
+            
+                    
+                    Dapr
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.2" data-path="../Framework/Serverless.html">
+            
+                <a href="../Framework/Serverless.html">
+            
+                    
+                    Serverless
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="../HostedPlatform.html">
+            
+                <a href="../HostedPlatform.html">
+            
+                    
+                    Hosted Platform
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter active" data-level="1.5.1" data-path="Alibaba.html">
+            
+                <a href="Alibaba.html">
+            
+                    
+                    Alibaba Cloud Function Compute
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.2" data-path="AWS.html">
+            
+                <a href="AWS.html">
+            
+                    
+                    AWS Lambda
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.3" data-path="Azure.html">
+            
+                <a href="Azure.html">
+            
+                    
+                    Azure Functions
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.4" data-path="Google.html">
+            
+                <a href="Google.html">
+            
+                    
+                    Google Cloud Functions
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.5" data-path="Huawei.html">
+            
+                <a href="Huawei.html">
+            
+                    
+                    Huawei FunctionStage
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.6" data-path="Tencent.html">
+            
+                <a href="Tencent.html">
+            
+                    
+                    Tencent Cloud Serverless Cloud Function
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" data-path="../InstallablePlatform.html">
+            
+                <a href="../InstallablePlatform.html">
+            
+                    
+                    Installable Platform
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.6.1" data-path="../InstallablePlatform/OpenWhisk/OpenWhisk.html">
+            
+                <a href="../InstallablePlatform/OpenWhisk/OpenWhisk.html">
+            
+                    
+                    Apache OpenWhisk
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.2" data-path="../InstallablePlatform/Fission/Fission.html">
+            
+                <a href="../InstallablePlatform/Fission/Fission.html">
+            
+                    
+                    Fission
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.3" data-path="../InstallablePlatform/Kubeless/Kubeless.html">
+            
+                <a href="../InstallablePlatform/Kubeless/Kubeless.html">
+            
+                    
+                    Kubeless
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.4" data-path="../InstallablePlatform/OpenFaas/OpenFaas.html">
+            
+                <a href="../InstallablePlatform/OpenFaas/OpenFaas.html">
+            
+                    
+                    OpenFaas
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.5" data-path="../InstallablePlatform/Knative/Knative.html">
+            
+                <a href="../InstallablePlatform/Knative/Knative.html">
+            
+                    
+                    Knative
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >Alibaba Cloud Function Compute</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <p><a href="https://www.alibabacloud.com/products/function-compute" target="_blank">&#x5B98;&#x7F51;&#x5730;&#x5740;</a></p>
+<p>&#x963F;&#x91CC;&#x5DF4;&#x5DF4;&#x51FD;&#x6570;&#x8BA1;&#x7B97;&#x63D0;&#x4F9B;&#x7684;&#x529F;&#x80FD;&#x6709;&#xFF1A;</p>
+<ul>
+<li>&#x4E30;&#x5BCC;&#x7684;&#x89E6;&#x53D1;&#x5668;&#x7C7B;&#x578B;<ul>
+<li>&#x65F6;&#x95F4;&#x89E6;&#x53D1;&#x5668;</li>
+<li>Http &#x89E6;&#x53D1;&#x5668;</li>
+<li>&#x963F;&#x91CC;&#x4E91;&#x5404;&#x79CD;&#x4EA7;&#x54C1;&#x89E6;&#x53D1;&#x5668;</li>
+</ul>
+</li>
+<li>&#x591A;&#x79CD;&#x7F16;&#x7A0B;&#x8BED;&#x8A00;&#x652F;&#x6301;</li>
+<li>&#x4FBF;&#x6377;&#x7684;&#x5F00;&#x53D1;&#x5DE5;&#x5177;<ul>
+<li><a href="https://github.com/alibaba/funcraft" target="_blank">funcraft</a>&#xFF1A;&#x963F;&#x91CC;&#x81EA;&#x7814;&#x7684;&#x5F00;&#x53D1;&#x3001;&#x6784;&#x5EFA;&#x3001;&#x90E8;&#x7F72;&#x5DE5;&#x5177;</li>
+<li>VSCode &#x63D2;&#x4EF6;</li>
+</ul>
+</li>
+<li>&#x4E30;&#x5BCC;&#x7684;&#x8D44;&#x6E90;&#x7C7B;&#x578B;<ul>
+<li>&#x9884;&#x7559;&#x5B9E;&#x4F8B;</li>
+<li>&#x6309;&#x91CF;&#x5B9E;&#x4F8B;</li>
+</ul>
+</li>
+<li>&#x7075;&#x6D3B;&#x7684;&#x8BA1;&#x91CF;&#x6A21;&#x5F0F;<ul>
+<li>&#x540E;&#x4ED8;&#x8D39;&#x6A21;&#x578B;</li>
+<li>&#x9884;&#x4ED8;&#x8D39;&#xFF08;&#x5305;&#x5E74;&#x5305;&#x6708;&#xFF09;&#x6A21;&#x578B;</li>
+</ul>
+</li>
+</ul>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="../HostedPlatform.html" class="navigation navigation-prev " aria-label="Previous page: Hosted Platform">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="AWS.html" class="navigation navigation-next " aria-label="Next page: AWS Lambda">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"Alibaba Cloud Function Compute","level":"1.5.1","depth":2,"next":{"title":"AWS Lambda","level":"1.5.2","depth":2,"path":"HostedPlatform/AWS.md","ref":"HostedPlatform/AWS.md","articles":[]},"previous":{"title":"Hosted Platform","level":"1.5","depth":1,"path":"HostedPlatform.md","ref":"./HostedPlatform.md","articles":[{"title":"Alibaba Cloud Function Compute","level":"1.5.1","depth":2,"path":"HostedPlatform/Alibaba.md","ref":"HostedPlatform/Alibaba.md","articles":[]},{"title":"AWS Lambda","level":"1.5.2","depth":2,"path":"HostedPlatform/AWS.md","ref":"HostedPlatform/AWS.md","articles":[]},{"title":"Azure Functions","level":"1.5.3","depth":2,"path":"HostedPlatform/Azure.md","ref":"HostedPlatform/Azure.md","articles":[]},{"title":"Google Cloud Functions","level":"1.5.4","depth":2,"path":"HostedPlatform/Google.md","ref":"HostedPlatform/Google.md","articles":[]},{"title":"Huawei FunctionStage","level":"1.5.5","depth":2,"path":"HostedPlatform/Huawei.md","ref":"HostedPlatform/Huawei.md","articles":[]},{"title":"Tencent Cloud Serverless Cloud Function","level":"1.5.6","depth":2,"path":"HostedPlatform/Tencent.md","ref":"HostedPlatform/Tencent.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":["livereload"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"coldTea214","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"Introduction.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"cncf-serverless 学习笔记","gitbook":"*"},"file":{"path":"HostedPlatform/Alibaba.md","mtime":"2020-08-31T10:13:56.006Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-08-31T10:29:57.837Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-livereload/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+

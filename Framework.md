@@ -9,7 +9,5 @@ Framework 提供了开发 serverless 应用相关的框架，包括：
 * [Sparta](https://gosparta.io/)：[开源项目](https://github.com/mweagle/Sparta)，基于 AWS Lambda 的 go 微服务框架
 * [Spring Cloud Function](https://spring.io/projects/spring-cloud-function)：[开源项目](https://github.com/spring-cloud/spring-cloud-function)，java 相关
 
-云绑定、语言相关的框架，暂不深入讨论。这里对跨云、通用的项目进一步展开说明：
+云绑定、语言相关的框架，暂不深入讨论。下面对跨云、通用的项目进一步展开说明
 
-* [Dapr](./Framework/Dapr.md)
-* [Serverless](./Framework/Serverless.md)

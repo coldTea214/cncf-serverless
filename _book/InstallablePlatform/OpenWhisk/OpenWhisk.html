@@ -1,0 +1,532 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>Apache OpenWhisk · cncf-serverless 学习笔记</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        <meta name="author" content="coldTea214">
+        
+        
+    
+    <link rel="stylesheet" href="../../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="../Fission/Fission.html" />
+    
+    
+    <link rel="prev" href="../../InstallablePlatform.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../../">
+            
+                <a href="../../">
+            
+                    
+                    前言
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="../../Tools.html">
+            
+                <a href="../../Tools.html">
+            
+                    
+                    Tools
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="../../Security.html">
+            
+                <a href="../../Security.html">
+            
+                    
+                    Security
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="../../Framework.html">
+            
+                <a href="../../Framework.html">
+            
+                    
+                    Framework
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.1" data-path="../../Framework/Dapr.html">
+            
+                <a href="../../Framework/Dapr.html">
+            
+                    
+                    Dapr
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.2" data-path="../../Framework/Serverless.html">
+            
+                <a href="../../Framework/Serverless.html">
+            
+                    
+                    Serverless
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="../../HostedPlatform.html">
+            
+                <a href="../../HostedPlatform.html">
+            
+                    
+                    Hosted Platform
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.5.1" data-path="../../HostedPlatform/Alibaba.html">
+            
+                <a href="../../HostedPlatform/Alibaba.html">
+            
+                    
+                    Alibaba Cloud Function Compute
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.2" data-path="../../HostedPlatform/AWS.html">
+            
+                <a href="../../HostedPlatform/AWS.html">
+            
+                    
+                    AWS Lambda
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.3" data-path="../../HostedPlatform/Azure.html">
+            
+                <a href="../../HostedPlatform/Azure.html">
+            
+                    
+                    Azure Functions
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.4" data-path="../../HostedPlatform/Google.html">
+            
+                <a href="../../HostedPlatform/Google.html">
+            
+                    
+                    Google Cloud Functions
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.5" data-path="../../HostedPlatform/Huawei.html">
+            
+                <a href="../../HostedPlatform/Huawei.html">
+            
+                    
+                    Huawei FunctionStage
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.6" data-path="../../HostedPlatform/Tencent.html">
+            
+                <a href="../../HostedPlatform/Tencent.html">
+            
+                    
+                    Tencent Cloud Serverless Cloud Function
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" data-path="../../InstallablePlatform.html">
+            
+                <a href="../../InstallablePlatform.html">
+            
+                    
+                    Installable Platform
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter active" data-level="1.6.1" data-path="OpenWhisk.html">
+            
+                <a href="OpenWhisk.html">
+            
+                    
+                    Apache OpenWhisk
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.2" data-path="../Fission/Fission.html">
+            
+                <a href="../Fission/Fission.html">
+            
+                    
+                    Fission
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.3" data-path="../Kubeless/Kubeless.html">
+            
+                <a href="../Kubeless/Kubeless.html">
+            
+                    
+                    Kubeless
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.4" data-path="../OpenFaas/OpenFaas.html">
+            
+                <a href="../OpenFaas/OpenFaas.html">
+            
+                    
+                    OpenFaas
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.5" data-path="../Knative/Knative.html">
+            
+                <a href="../Knative/Knative.html">
+            
+                    
+                    Knative
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="../.." >Apache OpenWhisk</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <p>&#x672C;&#x6587;&#x57FA;&#x4E8E; <a href="https://github.com/apache/openwhisk/tree/71b7d564ff60bf6e89be5410ffcf59f785d17a4a" target="_blank">Apache OpenWhisk</a> 71b7d564ff60bf6e89be5410ffcf59f785d17a4a &#x7248;&#x672C;&#x3002;&#x56E0;&#x4E3A;&#x5BF9; scala &#x5E76;&#x4E0D;&#x719F;&#xFF0C;&#x8FD9;&#x4E2A;&#x9879;&#x76EE;&#x5C31;&#x7B80;&#x5355;&#x4ECB;&#x7ECD;&#x4E00;&#x4E0B;</p>
+<h1 id="&#x67B6;&#x6784;">&#x67B6;&#x6784;</h1>
+<p><img src="architecture.png" alt="architecture"></p>
+<p><a href="https://github.com/apache/openwhisk/blob/71b7d564ff60bf6e89be5410ffcf59f785d17a4a/docs/about.md#the-internal-flow-of-processing" target="_blank">&#x56FE;&#x7247;&#x6765;&#x6E90;</a></p>
+<p>OpenWhisk &#x590D;&#x7528;&#x4E86;&#x793E;&#x533A;&#x7684; Nginx, Kafka, Docker, CouchDB &#x7EC4;&#x4EF6;&#xFF0C;&#x65B0;&#x589E;&#x4E86; Controller &#x548C; Invoker &#x7EC4;&#x4EF6;</p>
+<p>&#x8FD9;&#x91CC;&#x7ED9;&#x51FA;&#x4E00;&#x4E2A;&#x7B80;&#x5355;&#x7684; demo&#xFF1A;</p>
+<ul>
+<li><p>&#x7528;&#x6237;&#x7F16;&#x5199;&#x51FD;&#x6570;&#x4EE3;&#x7801;</p>
+<pre><code>  function main() {
+      console.log(&apos;Hello World&apos;);
+      return { hello: &apos;world&apos; };
+  }
+</code></pre></li>
+<li><p>&#x521B;&#x5EFA; action</p>
+<pre><code>  wsk action create myAction action.js
+</code></pre></li>
+<li><p>&#x89E6;&#x53D1; action</p>
+<pre><code>  wsk action invoke myAction --result
+</code></pre></li>
+</ul>
+<p>create &#x662F;&#x4E00;&#x4E2A;&#x7B80;&#x5355;&#x7684; crud&#xFF0C;&#x4E0B;&#x9762;&#x7ED3;&#x5408;&#x67B6;&#x6784;&#x56FE;&#xFF0C;&#x6765;&#x8BF4;&#x4E00;&#x4E0B; invoke &#x7684;&#x5DE5;&#x4F5C;&#x6D41;&#xFF1A;</p>
+<ul>
+<li>wsk action invoke &#x547D;&#x4EE4;&#x5411; nginx &#x53D1;&#x8D77;&#x4E86;&#x4E00;&#x4E2A; http &#x8BF7;&#x6C42;</li>
+<li>nginx &#x8F6C;&#x53D1;&#x8BF7;&#x6C42;&#x5230; controller</li>
+<li>controller &#x5B8C;&#x6210; request &#x7684;&#x8BA4;&#x8BC1;&#xFF0C;&#x5E76;&#x4ECE; couchDB subjects &#x6570;&#x636E;&#x5E93;&#x83B7;&#x53D6;&#x4FE1;&#x606F;&#x5B8C;&#x6210;&#x9274;&#x6743;</li>
+<li>&#x9274;&#x6743;&#x901A;&#x8FC7;&#x540E;&#xFF0C;controller &#x4ECE; couchDB whisks &#x6570;&#x636E;&#x5E93;&#x83B7;&#x53D6; action &#x4FE1;&#x606F;</li>
+<li>controller &#x5305;&#x542B; Load Balancer &#x6A21;&#x5757;&#xFF0C;&#x5B83;&#x68C0;&#x67E5;&#x7CFB;&#x7EDF;&#x4E2D;&#x6240;&#x6709; executor&#xFF08;&#x79F0;&#x4E3A; Invoker&#xFF09;&#x7684;&#x5065;&#x5EB7;&#x72B6;&#x51B5;&#xFF0C;&#x83B7;&#x6089;&#x5168;&#x5C40;&#x53EF;&#x7528; invoker&#xFF0C;&#x53D1;&#x9001;&#x4FE1;&#x606F;&#x5230; kafka</li>
+<li>invoker &#x83B7;&#x53D6; message&#xFF0C;kafka &#x8FD4;&#x56DE; activationID &#x7ED9;&#x7528;&#x6237;&#xFF08;&#x5F02;&#x6B65;&#xFF09;</li>
+<li>invoker &#x542F;&#x52A8; docker &#x5BB9;&#x5668;&#xFF0C;&#x6CE8;&#x5165; action &#x4EE3;&#x7801;&#xFF0C;&#x6267;&#x884C;&#x5B8C;&#x540E;&#xFF0C;&#x5C06;&#x7ED3;&#x679C;&#x5B58;&#x50A8;&#x5230; couchDB activations &#x6570;&#x636E;&#x5E93;</li>
+<li>invoker &#x9500;&#x6BC1;&#x5BB9;&#x5668;</li>
+</ul>
+<p>&#x53C2;&#x8003;&#x6587;&#x6863;&#xFF1A;</p>
+<ul>
+<li><a href="https://github.com/apache/openwhisk/blob/71b7d564ff60bf6e89be5410ffcf59f785d17a4a/docs/about.md" target="_blank">System overview</a></li>
+</ul>
+<h1 id="&#x6982;&#x5FF5;">&#x6982;&#x5FF5;</h1>
+<p>&#x4E0A;&#x6587;&#x4E2D;&#x63D0;&#x5230;&#x4E86; action &#x7B49;&#x4E00;&#x4E9B;&#x6982;&#x5FF5;&#xFF0C;&#x672C;&#x8282;&#x4F1A;&#x7CFB;&#x7EDF;&#x6027;&#x7684;&#x4ECB;&#x7ECD; OpenWhisk &#x4E2D;&#x7684;&#x4E3B;&#x8981;&#x6982;&#x5FF5;</p>
+<ul>
+<li>Namespace&#xFF1A;namespace &#x662F; OpenWhisk &#x7EC4;&#x7EC7;&#x8D44;&#x6E90;&#x5BF9;&#x8C61;&#x7684;&#x65B9;&#x5F0F;&#xFF0C;&#x50CF; actions, triggers, &#x548C; rules &#x90FD;&#x5F52;&#x5C5E;&#x4E8E;&#x67D0;&#x4E00;&#x4E2A; namespace</li>
+<li>Package&#xFF1A;&#x548C; namespace &#x7C7B;&#x4F3C;&#xFF0C;&#x4E00;&#x4E2A; namespace &#x53EF;&#x4EE5;&#x5305;&#x542B;&#x591A;&#x4E2A; package&#x3002;&#x5BF9; actions &#x7B49;&#x5BF9;&#x8C61;&#x6765;&#x8BF4;&#xFF0C;&#x53EF;&#x4EE5;&#x5F52;&#x5C5E; package &#x4E5F;&#x53EF;&#x4EE5;&#x4E0D;&#x5F52;&#x5C5E;&#x3002;package &#x7684;&#x4E3B;&#x8981;&#x4F5C;&#x7528;&#x662F;&#x5171;&#x4EAB;&#x548C;&#x590D;&#x7528;&#xFF0C;&#x4F8B;&#x5982; /whisk.system/github &#x5C31;&#x5305;&#x542B;&#x4E86;&#x5BF9; github webhook &#x7684;&#x652F;&#x6301;&#x3002;&#x5177;&#x4F53;&#x5185;&#x5BB9;&#x53EF;&#x53C2;&#x8003; <a href="https://github.com/apache/openwhisk/blob/71b7d564ff60bf6e89be5410ffcf59f785d17a4a/docs/packages.md" target="_blank">Using and creating OpenWhisk packages</a></li>
+<li>Action&#xFF1A;action &#x5C31;&#x662F;&#x7528;&#x6237;&#x5B9A;&#x4E49;&#x7684;&#x51FD;&#x6570;&#x3002;&#x652F;&#x6301;&#x591A;&#x79CD;&#x8BED;&#x8A00;&#xFF0C;&#x652F;&#x6301;&#x540C;&#x6B65;&#x3001;&#x5F02;&#x6B65;&#x8C03;&#x7528;&#xFF0C;&#x8FD8;&#x53EF;&#x4EE5;&#x63A7;&#x5236; action &#x8C03;&#x7528;&#x94FE;&#x987A;&#x5E8F;&#x3002;&#x501F;&#x52A9; wsk &#x547D;&#x4EE4;&#x884C;&#x53EF;&#x4EE5;&#x65B9;&#x4FBF;&#x7684;&#x7F16;&#x5199;&#x3001;&#x89E6;&#x53D1;&#x3001;&#x66F4;&#x65B0;&#x51FD;&#x6570;&#x3002;&#x5177;&#x4F53;&#x5185;&#x5BB9;&#x53EF;&#x53C2;&#x8003; <a href="https://github.com/apache/openwhisk/blob/71b7d564ff60bf6e89be5410ffcf59f785d17a4a/docs/actions.md" target="_blank">OpenWhisk Actions</a></li>
+<li>Trigger &amp; Rule&#xFF1A;&#x901A;&#x8FC7; wsk action invoke &#x53EF;&#x4EE5;&#x89E6;&#x53D1; action&#xFF0C;&#x4F46;&#x4E00;&#x822C;&#x5728;&#x751F;&#x4EA7;&#x73AF;&#x5883;&#xFF0C;&#x9700;&#x8981;&#x901A;&#x8FC7; trigger &#x548C; rule &#x6765;&#x89E6;&#x53D1;&#x3002;&#x5176;&#x4E2D;&#xFF0C;trigger &#x7531; feed &#x89E6;&#x53D1;&#xFF0C;rule &#x5219;&#x7ED1;&#x5B9A; trigger &#x548C; action&#x3002;&#x5177;&#x4F53;&#x5185;&#x5BB9;&#x53EF;&#x53C2;&#x8003; <a href="https://github.com/apache/openwhisk/blob/71b7d564ff60bf6e89be5410ffcf59f785d17a4a/docs/triggers_rules.md" target="_blank">Creating triggers and rules</a></li>
+<li>Feed&#xFF1A;feed &#x662F;&#x89E6;&#x53D1;&#x51FD;&#x6570;&#x7684;&#x4E8B;&#x4EF6;&#x6E90;&#xFF0C;OpenWhisk &#x652F;&#x6301;&#x4E09;&#x79CD; feed&#xFF1A;Hooks, Polling &#x548C; Connections&#x3002;Hooks &#x6307;&#x7531;&#x4E00;&#x4E2A; webhook &#x89E6;&#x53D1;&#xFF0C;&#x5982; github &#x63D0;&#x4EA4;&#x4EE3;&#x7801;&#xFF1B;Polling &#x6307;&#x9760; action &#x53BB;&#x4E3B;&#x52A8;&#x8F6E;&#x8BE2;&#xFF1B;Connections &#x5219;&#x662F;&#x6307;&#x53E6;&#x8D77;&#x4E00;&#x4E2A;&#x670D;&#x52A1;&#xFF0C;&#x5B83;&#x6765;&#x5173;&#x6CE8;&#x4E8B;&#x4EF6;&#x6E90;&#xFF0C;&#x5728;&#x83B7;&#x53D6;&#x4E8B;&#x4EF6;&#x540E;&#xFF0C;&#x4E3B;&#x52A8;&#x901A;&#x77E5; OpenWhisk&#x3002;&#x5177;&#x4F53;&#x5185;&#x5BB9;&#x53EF;&#x53C2;&#x8003; <a href="https://github.com/apache/openwhisk/blob/71b7d564ff60bf6e89be5410ffcf59f785d17a4a/docs/feeds.md" target="_blank">Implementing feeds</a></li>
+</ul>
+<p>&#x8FD9;&#x91CC;&#x518D;&#x5BF9;&#x6613;&#x6DF7;&#x6DC6;&#x7684; feed &#x548C; trigger &#x5BF9;&#x6BD4;&#x8BF4;&#x660E;&#x4E00;&#x4E0B;&#x3002;feed &#x662F;&#x5177;&#x4F53;&#x7684;&#x4E8B;&#x4EF6;&#x6E90;&#xFF0C;trigger &#x662F;&#x865A;&#x62DF;&#x7684;&#x89E6;&#x53D1;&#x5668;&#x3002;&#x5177;&#x4F53;&#x6765;&#x8BF4;&#xFF0C;&#x201C;&#x535A;&#x7269;&#x9986;&#x4EBA;&#x6765;&#x4E86;&#x201D; &#x662F;&#x4E00;&#x4E2A; trigger&#xFF0C;&#x53EF;&#x4EE5;&#x89E6;&#x53D1; &#x201C;&#x5F00;&#x95E8;&#x201D;&#x3001;&#x201C;&#x4EAE;&#x706F;&#x201D; &#x7B49;&#x591A;&#x4E2A; action&#xFF0C;&#x6B64;&#x65F6;&#xFF0C;&#x95E8;&#x53E3;&#x7684; &#x201C;&#x6444;&#x50CF;&#x5934;1&#x201D;&#x3001;&#x201C;&#x6444;&#x50CF;&#x5934;2&#x201D; &#x4EE5;&#x53CA; &#x201C;&#x95E8;&#x53E3;&#x7684;&#x5927;&#x7237;&#x201D; &#x90FD;&#x662F;&#x4E0D;&#x540C;&#x7684; feed&#xFF0C;&#x5B83;&#x4EEC;&#x90FD;&#x53EF;&#x4EE5;&#x89E6;&#x53D1; trigger&#x3002;&#x4ECE;&#x5B9E;&#x73B0;&#x4E0A;&#x6765;&#x8BF4;&#xFF0C;trigger &#x53CA;&#x540E;&#x9762;&#x6240;&#x6709;&#x5BF9;&#x8C61;&#x3001;&#x903B;&#x8F91;&#x90FD;&#x662F; OpenWhisk &#x5185;&#x90E8;&#x903B;&#x8F91;&#xFF0C;&#x800C; feed &#x5219;&#x591A;&#x662F;&#x5916;&#x90E8;&#x5B9E;&#x73B0;&#xFF0C;&#x5B83;&#x4EEC;&#x6700;&#x7EC8;&#x901A;&#x8FC7; post &#x8BF7;&#x6C42;&#x6765;&#x89E6;&#x53D1; trigger</p>
+<h1 id="&#x5176;&#x5B83;">&#x5176;&#x5B83;</h1>
+<p>OpenWhisk &#x8FD8;&#x652F;&#x6301;&#x7528;&#x6237;&#x81EA;&#x5B9A;&#x4E49;&#x81EA;&#x5DF1;&#x7684; runtime&#xFF0C;&#x5177;&#x4F53;&#x5185;&#x5BB9;&#x53EF;&#x53C2;&#x8003; <a href="https://github.com/apache/openwhisk/blob/71b7d564ff60bf6e89be5410ffcf59f785d17a4a/docs/actions-actionloop.md" target="_blank">Developing a new Runtime with the ActionLoop proxy</a></p>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="../../InstallablePlatform.html" class="navigation navigation-prev " aria-label="Previous page: Installable Platform">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="../Fission/Fission.html" class="navigation navigation-next " aria-label="Next page: Fission">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"Apache OpenWhisk","level":"1.6.1","depth":2,"next":{"title":"Fission","level":"1.6.2","depth":2,"path":"InstallablePlatform/Fission/Fission.md","ref":"InstallablePlatform/Fission/Fission.md","articles":[]},"previous":{"title":"Installable Platform","level":"1.6","depth":1,"path":"InstallablePlatform.md","ref":"./InstallablePlatform.md","articles":[{"title":"Apache OpenWhisk","level":"1.6.1","depth":2,"path":"InstallablePlatform/OpenWhisk/OpenWhisk.md","ref":"InstallablePlatform/OpenWhisk/OpenWhisk.md","articles":[]},{"title":"Fission","level":"1.6.2","depth":2,"path":"InstallablePlatform/Fission/Fission.md","ref":"InstallablePlatform/Fission/Fission.md","articles":[]},{"title":"Kubeless","level":"1.6.3","depth":2,"path":"InstallablePlatform/Kubeless/Kubeless.md","ref":"InstallablePlatform/Kubeless/Kubeless.md","articles":[]},{"title":"OpenFaas","level":"1.6.4","depth":2,"path":"InstallablePlatform/OpenFaas/OpenFaas.md","ref":"InstallablePlatform/OpenFaas/OpenFaas.md","articles":[]},{"title":"Knative","level":"1.6.5","depth":2,"path":"InstallablePlatform/Knative/Knative.md","ref":"InstallablePlatform/Knative/Knative.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":["livereload"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"coldTea214","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"Introduction.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"cncf-serverless 学习笔记","gitbook":"*"},"file":{"path":"InstallablePlatform/OpenWhisk/OpenWhisk.md","mtime":"2020-08-13T08:14:23.134Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-08-31T10:29:57.837Z"},"basePath":"../..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../../gitbook/gitbook.js"></script>
+    <script src="../../gitbook/theme.js"></script>
+    
+        
+        <script src="../../gitbook/gitbook-plugin-livereload/plugin.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+

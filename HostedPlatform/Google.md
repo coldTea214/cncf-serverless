@@ -1,3 +1,5 @@
+[官网地址](https://cloud.google.com/functions/)
+
 Google cloud functions 提供的功能包括：
 
 * 连接和扩展服务以构建复杂应用：可以将 Google 和第三方云服务视作组件，利用代码连接并扩展这些组件
