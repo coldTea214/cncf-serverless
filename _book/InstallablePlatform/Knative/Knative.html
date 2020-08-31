@@ -443,17 +443,16 @@
 <p>serving&#x3001;eventing &#x5B9E;&#x9645;&#x66F4;&#x65B0;&#x7684;&#x5185;&#x5BB9;&#x5F88;&#x591A;&#xFF0C;&#x9879;&#x76EE;&#x5728;&#x5F88;&#x6D3B;&#x8DC3;&#x7684;&#x53D1;&#x5C55;&#xFF0C;&#x5168;&#x91CF;&#x66F4;&#x65B0;&#x53EF;&#x4EE5;&#x81EA;&#x884C;&#x70B9;&#x51FB;&#x94FE;&#x63A5;&#x786E;&#x8BA4;</p>
 <h1 id="&#x90E8;&#x7F72;">&#x90E8;&#x7F72;</h1>
 <p>&#x7ED3;&#x5408;&#x5B9E;&#x6218;&#x6765;&#x5B66;&#x4E60;&#x672C; repo</p>
-<h2 id="&#x5B89;&#x88C5;">&#x5B89;&#x88C5;</h2>
 <p>&#x6CE8;&#xFF1A;knative 0.17 &#x9700;&#x8981; k8s 1.16+</p>
-<h3 id="&#x5B89;&#x88C5;-client">&#x5B89;&#x88C5; client</h3>
+<h2 id="&#x5B89;&#x88C5;-client">&#x5B89;&#x88C5; client</h2>
 <pre><code>$ curl https://github.com/knative/client/releases/download/v0.16.0/kn-linux-amd64 -o kn \
     &amp;&amp; chmod +x kn &amp;&amp; sudo mv kn /usr/local/bin/
-</code></pre><h3 id="&#x5B89;&#x88C5;-istio">&#x5B89;&#x88C5; istio</h3>
+</code></pre><h2 id="&#x5B89;&#x88C5;-istio">&#x5B89;&#x88C5; istio</h2>
 <p>&#x5B89;&#x88C5; knative &#x9700;&#x8981;&#x9009;&#x62E9;&#x5B89;&#x88C5;&#x4E00;&#x4E2A;&#x7F51;&#x7EDC;&#x5C42;&#xFF0C;&#x53EF;&#x9009;&#x7684;&#x5305;&#x62EC; Ambassador&#x3001;Contour&#x3001;Gloo&#x3001;Istio&#x3001;Kong&#x3001;Kourier&#xFF0C;&#x8FD9;&#x91CC;&#x9009;&#x62E9; istio</p>
-<h4 id="&#x5B89;&#x88C5;-istio-client">&#x5B89;&#x88C5; istio client</h4>
+<h3 id="&#x5B89;&#x88C5;-istio-client">&#x5B89;&#x88C5; istio client</h3>
 <pre><code>$ curl -L https://github.com/istio/istio/releases/download/1.6.8/istio-1.6.8-linux-amd64.tar.gz -o istio-1.6.8.tar \
     &amp;&amp; tar -xf istio-1.6.8.tar &amp;&amp; sudo mv istio-1.6.8/bin/istioctl /usr/local/bin/
-</code></pre><h4 id="&#x5B89;&#x88C5;-istio-server">&#x5B89;&#x88C5; istio server</h4>
+</code></pre><h3 id="&#x5B89;&#x88C5;-istio-server">&#x5B89;&#x88C5; istio server</h3>
 <p>&#x672C;&#x7BC7;&#x4E0D;&#x662F;&#x5BF9; istio &#x505A;&#x4ECB;&#x7ECD;&#xFF0C;&#x8FD9;&#x91CC;&#x5C31;&#x9009;&#x7528;&#x6700;&#x7B80;&#x5355;&#x7684;&#x65B9;&#x5F0F;&#xFF0C;&#x901A;&#x8FC7; istio operator &#x6765;&#x5B89;&#x88C5; istio server</p>
 <pre><code>$ cat istio-minimal-operator.yaml
 apiVersion: install.istio.io/v1alpha1
@@ -498,7 +497,8 @@ NAME                                     READY   STATUS    RESTARTS   AGE
 cluster-local-gateway-647598f7cd-rrsvw   1/1     Running   0          41h
 istio-ingressgateway-75d5967d8c-pr2t5    1/1     Running   0          41h
 istiod-95c865c7b-c9cmv                   1/1     Running   0          41h
-</code></pre><h3 id="&#x5B89;&#x88C5;-serving">&#x5B89;&#x88C5; serving</h3>
+</code></pre><h2 id="&#x5B89;&#x88C5;-serving">&#x5B89;&#x88C5; serving</h2>
+<h3 id="&#x5B89;&#x88C5;">&#x5B89;&#x88C5;</h3>
 <pre><code>$ kubectl apply -f https://github.com/knative/serving/releases/download/v0.17.0/serving-crds.yaml
 $ kubectl apply -f https://github.com/knative/serving/releases/download/v0.17.0/serving-core.yaml
 $ kubectl apply -f https://github.com/knative/net-istio/releases/download/v0.17.0/release.yaml
@@ -513,7 +513,7 @@ controller-bc8d75cbc-4b58w          1/1     Running   0          42h
 istio-webhook-6dd89ff45d-cr56j      1/1     Running   0          40h
 networking-istio-5d68bb7d56-qrlfh   1/1     Running   0          40h
 webhook-85758f4589-mckkp            1/1     Running   0          42h
-</code></pre><h3 id="&#x9A8C;&#x8BC1;-serving">&#x9A8C;&#x8BC1; serving</h3>
+</code></pre><h3 id="&#x9A8C;&#x8BC1;">&#x9A8C;&#x8BC1;</h3>
 <pre><code>$ kn service create hello-serving --image gcr.io/knative-samples/helloworld-go@sha256:5ea96ba4b872685ff4ddb5cd8d1a97ec18c18fae79ee8df0d29f446c5efe5f50
 Creating service &apos;hello-serving&apos; in namespace &apos;default&apos;:
 
@@ -531,7 +531,8 @@ http://hello-serving.default.example.com
 # &#x5982;&#x679C;&#x4E0A;&#x9762;&#x6709;&#x914D;&#x7F6E;&#x8FC7; dns&#xFF0C;&#x5219;&#x76F4;&#x63A5;&#x7528;&#x666E;&#x901A;&#x7684; curl &#x5C31;&#x53EF;&#x4EE5;&#x4E86;
 $ curl -H &quot;Host: hello-serving.default.example.com&quot; http://$INTERNAL_INGRESS_HOST
 Hello World!
-</code></pre><h3 id="&#x5B89;&#x88C5;-eventing">&#x5B89;&#x88C5; eventing</h3>
+</code></pre><h2 id="&#x5B89;&#x88C5;-eventing">&#x5B89;&#x88C5; eventing</h2>
+<h3 id="&#x5B89;&#x88C5;">&#x5B89;&#x88C5;</h3>
 <pre><code>$ kubectl apply -f https://github.com/knative/eventing/releases/download/v0.17.0/eventing-crds.yaml
 $ kubectl apply -f https://github.com/knative/eventing/releases/download/v0.17.0/eventing-core.yaml
 $ kubectl apply -f https://github.com/knative/eventing/releases/download/v0.17.0/in-memory-channel.yaml
@@ -546,7 +547,7 @@ imc-dispatcher-7fdfff678-rcf2g         1/1     Running   0          19h
 mt-broker-controller-b5f997765-cwzwx   1/1     Running   0          19h
 mt-broker-filter-657cbfbcf6-7pzkj      1/1     Running   0          19h
 mt-broker-ingress-6b5598b45d-pbzf7     1/1     Running   0          19h
-</code></pre><h3 id="&#x9A8C;&#x8BC1;-eventing">&#x9A8C;&#x8BC1; eventing</h3>
+</code></pre><h3 id="&#x9A8C;&#x8BC1;">&#x9A8C;&#x8BC1;</h3>
 <p>&#x9A8C;&#x8BC1;&#x7528;&#x7684;4&#x4E2A; yaml &#x6587;&#x4EF6;&#xFF1A;</p>
 <pre><code>$ cat broker.yaml
 apiVersion: eventing.knative.dev/v1
@@ -775,6 +776,155 @@ Data,
 </li>
 </ul>
 <p>&#x5728;&#x4F7F;&#x7528;&#x5C0F;&#x8282;&#x4F1A;&#x7ED3;&#x5408;&#x5B9E;&#x4F8B;&#x6765;&#x8BE6;&#x7EC6;&#x8BF4;&#x660E;</p>
+<h1 id="&#x6982;&#x5FF5;">&#x6982;&#x5FF5;</h1>
+<h2 id="serving">serving</h2>
+<p>serving &#x5F15;&#x5165;&#x4E86; Service(ksvc)&#x3001;Route(rt)&#x3001;Configuration(cfg) &#x548C; Revision(rev) 4&#x4E2A; CRD&#x3002;4&#x8005;&#x7684;&#x5173;&#x7CFB;&#x662F;&#xFF1A;</p>
+<p><img src="crd-serving.png" alt="crd-serving"></p>
+<p><a href="https://knative.dev/v0.14-docs/serving/#serving-resources" target="_blank">&#x56FE;&#x7247;&#x6765;&#x6E90;</a></p>
+<p>&#x5177;&#x4F53;&#x6765;&#x8BF4;&#xFF1A;</p>
+<ul>
+<li>ksvc &#x5305;&#x542B;&#x4E86;&#x7528;&#x6237;&#x90E8;&#x7F72;&#x5E94;&#x7528;&#x7684;&#x6240;&#x6709;&#x4FE1;&#x606F;</li>
+<li>rt &#x662F;&#x5E94;&#x7528;&#x7248;&#x672C;&#x8DEF;&#x7531;&#x4FE1;&#x606F;&#xFF0C;&#x4FE1;&#x606F;&#x6765;&#x81EA; ksvc</li>
+<li>cfg &#x5305;&#x542B;&#x5E94;&#x7528;&#x5BB9;&#x5668;&#x6A21;&#x677F;&#x4FE1;&#x606F;&#xFF0C;&#x4FE1;&#x606F;&#x6765;&#x81EA; ksvc</li>
+<li>rev &#x7531; cfg &#x5B9E;&#x4F8B;&#x5316;&#x800C;&#x6765;&#xFF0C;&#x662F; deploy &#x7684;&#x4FE1;&#x606F;&#x6765;&#x6E90;&#x3002;&#x6BCF;&#x4FEE;&#x6539;&#x4E00;&#x6B21; cfg&#xFF0C;&#x90FD;&#x4F1A;&#x4EA7;&#x751F;&#x65B0;&#x7684; rev</li>
+</ul>
+<p>&#x9664;&#x4E86;&#x4E0A;&#x9762;&#x63D0;&#x53CA;&#x7684; ksvc&#x3001;rt&#x3001;cfg &#x548C; rev &#x5916;&#xFF0C;&#x5B9E;&#x9645;&#x4E0A; Knative &#x8FD8;&#x6709;&#x4E00;&#x4E9B; CRD&#xFF1A;Ingresses(king)&#xFF0C;ServerlessService(sks)&#xFF0C;PodAutoscaler(kpa)&#xFF0C;&#x8FD9;&#x4E9B;&#x4F1A;&#x5728;&#x4F7F;&#x7528;&#x5C0F;&#x8282;&#x7ED3;&#x5408;&#x5B9E;&#x4F8B;&#x8BF4;&#x660E;</p>
+<h1 id="&#x4F7F;&#x7528;">&#x4F7F;&#x7528;</h1>
+<h2 id="&#x57FA;&#x672C;&#x529F;&#x80FD;-serving">&#x57FA;&#x672C;&#x529F;&#x80FD;-serving</h2>
+<p>&#x672C;&#x5C0F;&#x8282;&#x4F1A;&#x6309;&#x7167;&#x201C;&#x4ECE;&#x96F6;&#x5F00;&#x59CB;&#x5199;&#x4E00;&#x4E2A; go &#x5E94;&#x7528;&#x201D;&#x7684;&#x6D41;&#x7A0B;&#xFF0C;&#x6765;&#x68B3;&#x7406;&#x529F;&#x80FD;</p>
+<h3 id="&#x7F16;&#x5199;-go-&#x4EE3;&#x7801;">&#x7F16;&#x5199; go &#x4EE3;&#x7801;</h3>
+<pre><code>$ cat hello.go
+package main
+
+import (
+    &quot;fmt&quot;
+    &quot;log&quot;
+    &quot;net/http&quot;
+)
+
+func handler(w http.ResponseWriter, r *http.Request) {
+    fmt.Fprintf(w, &quot;hello, world!\n&quot;)
+}
+
+func main() {
+    http.HandleFunc(&quot;/&quot;, handler)
+    port := &quot;8080&quot;
+    log.Fatal(http.ListenAndServe(fmt.Sprintf(&quot;:%s&quot;, port), nil))
+}
+</code></pre><p>&#x5728; knative &#x4F53;&#x7CFB;&#x4E0B;&#x7F16;&#x5199; go &#x5E94;&#x7528;&#xFF0C;&#x8DDF;&#x5E38;&#x89C4; go web &#x5F00;&#x53D1;&#x5E76;&#x65E0;&#x533A;&#x522B;</p>
+<h3 id="&#x6784;&#x9020;&#x955C;&#x50CF;">&#x6784;&#x9020;&#x955C;&#x50CF;</h3>
+<pre><code>$ cat Dockerfile
+FROM golang:1.13 as builder
+WORKDIR /app
+COPY . ./
+RUN CGO_ENABLED=0 GOOS=linux go build -v -o server
+
+FROM alpine:3
+RUN apk add --no-cache ca-certificates
+COPY --from=builder /app/server /server
+CMD [&quot;/server&quot;]
+
+$ docker build . -t dev.local/hello-go:test
+</code></pre><p>&#x5E38;&#x89C4;&#x7F16;&#x8BD1;&#xFF0C;&#x6CA1;&#x4EC0;&#x4E48;&#x8981;&#x8865;&#x5145;&#x7684;</p>
+<h3 id="&#x90E8;&#x7F72;&#x5E94;&#x7528;">&#x90E8;&#x7F72;&#x5E94;&#x7528;</h3>
+<pre><code>$ cat service.yaml
+apiVersion: serving.knative.dev/v1
+kind: Service
+metadata:
+  name: hello-go
+spec:
+  template:
+    spec:
+      containers:
+      - image: dev.local/hello-go:test
+
+$ kubectl apply -f service.yaml
+</code></pre><p>&#x521B;&#x5EFA; ksvc &#x6D89;&#x53CA;&#x7684;&#x5B8C;&#x6574;&#x6D41;&#x7A0B;&#x662F;&#xFF1A;</p>
+<ul>
+<li><p>&#x521B;&#x5EFA;&#x4E86; ksvc</p>
+<pre><code>  kubectl get ksvc
+  NAME       URL                                   LATESTCREATED    LATESTREADY      READY   REASON
+  hello-go   http://hello-go.default.example.com   hello-go-6wdlw   hello-go-6wdlw   True
+</code></pre></li>
+<li><p>controller &#x4F9D;&#x636E; ksvc &#x521B;&#x5EFA;&#x4E86;&#x5BF9;&#x5E94;&#x7684; rt&#x3001;cfg</p>
+<pre><code>  $ kubectl get rt
+  NAME       URL                                   READY   REASON
+  hello-go   http://hello-go.default.example.com   True
+  $ kubectl get cfg
+  NAME       LATESTCREATED    LATESTREADY      READY   REASON
+  hello-go   hello-go-6wdlw   hello-go-6wdlw   True
+</code></pre></li>
+<li><p>controller &#x4F9D;&#x636E; cfg &#x521B;&#x5EFA;&#x4E86;&#x5BF9;&#x5E94;&#x7684; rev</p>
+<pre><code>  $ kubectl get rev
+  NAME             CONFIG NAME   K8S SERVICE NAME   GENERATION   READY   REASON
+  hello-go-6wdlw   hello-go      hello-go-6wdlw     1            True
+</code></pre></li>
+<li><p>controller &#x4F9D;&#x636E; rt &#x521B;&#x5EFA;&#x4E86; king</p>
+<pre><code>  $ kubectl get king
+  NAME       READY   REASON
+  hello-go   True
+</code></pre></li>
+<li><p>networking-istio &#x4F9D;&#x636E; king &#x521B;&#x5EFA;&#x4E86; VirtualService(vs)&#xFF0C;&#x540E;&#x8005;&#x662F; istio CRD&#xFF0C;&#x63A5;&#x4E0B;&#x6765;&#x5C31;&#x662F; istio &#x7684;&#x903B;&#x8F91;&#x4E86;&#xFF0C;&#x8FD9;&#x91CC;&#x5C31;&#x4E0D;&#x518D;&#x5C55;&#x5F00; </p>
+<pre><code>  $ kubectl get vs
+  NAME               GATEWAYS                                                                          HOSTS                                                                                                     AGE
+  hello-go-ingress   [knative-serving/cluster-local-gateway knative-serving/knative-ingress-gateway]   [hello-go.default hello-go.default.example.com hello-go.default.svc hello-go.default.svc.cluster.local]   2d20h
+  hello-go-mesh      [mesh]                                                                            [hello-go.default hello-go.default.svc hello-go.default.svc.cluster.local]                                2d20h
+</code></pre></li>
+<li><p>controller &#x4F9D;&#x636E; rev &#x521B;&#x5EFA;&#x4E86; kpa</p>
+<pre><code>  $ kubectl get kpa
+  NAME             DESIREDSCALE   ACTUALSCALE   READY   REASON
+  hello-go-6wdlw   0              0             False   NoTraffic
+</code></pre></li>
+<li><p>autoscaler &#x4F9D;&#x636E; kpa &#x521B;&#x5EFA;&#x4E86; sks</p>
+<pre><code>  $ kubectl get sks
+  NAME             MODE    ACTIVATORS   SERVICENAME      PRIVATESERVICENAME       READY     REASON
+  hello-go-6wdlw   Proxy   2            hello-go-6wdlw   hello-go-6wdlw-private   Unknown   NoHealthyBackends
+</code></pre></li>
+<li>controller &#x4F9D;&#x636E;  rev &#x521B;&#x5EFA;&#x4E86; deploy</li>
+<li><p>svc &#x7684;&#x521B;&#x5EFA;&#x8981;&#x7A0D;&#x5FAE;&#x9EBB;&#x70E6;&#x4E00;&#x4E9B;&#xFF0C;&#x5B9E;&#x9645;&#x4E0A;&#x521B;&#x5EFA;&#x4E86;3&#x4E2A; service</p>
+<pre><code>  $ kubectl get svc
+  NAME                     TYPE           CLUSTER-IP       EXTERNAL-IP                                            PORT(S)                             AGE
+  hello-go                 ExternalName   &lt;none&gt;           cluster-local-gateway.istio-system.svc.cluster.local   &lt;none&gt;                              2d21h
+  hello-go-6wdlw           ClusterIP      10.96.213.237    &lt;none&gt;                                                 80/TCP                              2d21h
+  hello-go-6wdlw-private   ClusterIP      10.108.110.187   &lt;none&gt;                                                 80/TCP,9090/TCP,9091/TCP,8022/TCP   2d21h
+</code></pre><p>  &#x6211;&#x4EEC;&#x7684;&#x7528;&#x4F8B;&#x53EA;&#x7528;&#x5230;&#x4E86;&#x5176;&#x4E2D;&#x4E00;&#x4E2A;&#xFF0C;&#x5176;&#x5B83;&#x7684;&#x5982; hello-go&#xFF0C;&#x662F;&#x7528;&#x4E8E;&#x5916;&#x90E8;&#x57DF;&#x540D;&#x5230;&#x5185;&#x90E8;&#x57DF;&#x540D;&#x6620;&#x5C04;&#x7528;&#x7684;&#xFF0C;&#x6211;&#x4EEC;&#x7528;&#x4F8B;&#x4E2D;&#x4E0D;&#x6D89;&#x53CA;</p>
+</li>
+<li><p>&#x6CE8;&#x610F;&#x4E00;&#x4E9B;&#x7EC6;&#x8282;&#xFF0C;&#x6BD4;&#x5982;&#xFF1A;svc &#x662F;&#x6307;&#x5411; activator &#x7684;&#xFF1B;&#x90E8;&#x5206; svc &#x6CA1;&#x6709; selector&#xFF08;Knative &#x81EA;&#x5DF1;&#x6765;&#x540C;&#x6B65;&#xFF09;</p>
+<pre><code>  $ kubectl get ep hello-go-6wdlw
+  NAME             ENDPOINTS          AGE
+  hello-go-6wdlw   10.244.0.71:8012   2d21h
+  $ kubectl -n knative-serving get pod activator-68cbc9b5c7-6fsc2 -o wide
+  NAME                         READY   STATUS    RESTARTS   AGE     IP            NODE           NOMINATED NODE   READINESS GATES
+  activator-68cbc9b5c7-6fsc2   1/1     Running   0          5d17h   10.244.0.71   n227-020-128   &lt;none&gt;           &lt;none&gt;
+</code></pre></li>
+</ul>
+<h3 id="&#x8BBF;&#x95EE;&#x5E94;&#x7528;">&#x8BBF;&#x95EE;&#x5E94;&#x7528;</h3>
+<pre><code># &#x67E5;&#x770B;&#x5E94;&#x7528; URL &#x540E;&#x8BBF;&#x95EE;
+$ kubectl get ksvc
+NAME       URL                                   LATESTCREATED    LATESTREADY      READY   REASON
+hello-go   http://hello-go.default.example.com   hello-go-6wdlw   hello-go-6wdlw   True
+$ curl -H &quot;Host: hello-go.default.example.com&quot; http://$INTERNAL_INGRESS_HOST
+hello, world!
+</code></pre><p>&#x8BBF;&#x95EE;&#x5E94;&#x7528;&#x6D89;&#x53CA;&#x7684;&#x5B8C;&#x6574;&#x6D41;&#x7A0B;&#x662F;&#xFF1A;</p>
+<ul>
+<li>&#x8BBF;&#x95EE;&#x8BF7;&#x6C42;&#x53D1;&#x9001;&#x5230; istio</li>
+<li>istio &#x4F1A;&#x5B8C;&#x6210;&#x57DF;&#x540D;&#x5230; k8s svc &#x7684;&#x89E3;&#x6790;&#xFF0C;&#x8BBF;&#x95EE;&#x8BF7;&#x6C42;&#x8F6C;&#x53D1;&#x5230; activator</li>
+<li>activator &#x89E6;&#x53D1; deploy &#x6269;&#x5BB9;</li>
+<li>&#x8BBF;&#x95EE;&#x65B0;&#x5EFA; pod&#xFF0C;&#x8FD4;&#x56DE;&#x54CD;&#x5E94;</li>
+</ul>
+<p>&#x5982;&#x679C;&#x662F;&#x8F83;&#x4E3A;&#x9891;&#x7E41;&#x7684;&#x8BBF;&#x95EE;&#xFF0C;&#x5219;&#x8FD8;&#x4F1A;&#x89E6;&#x53D1;&#x5176;&#x5B83;&#x7684;&#x903B;&#x8F91;</p>
+<pre><code>$ hey -n 1000000 -c 300 -m GET -host hello-go.default.example.com http://$INTERNAL_INGRESS_HOST
+</code></pre><ul>
+<li>autoscaler &#x66F4;&#x65B0; sks</li>
+<li><p>controller &#x66F4;&#x65B0; ep&#xFF0C;&#x7531; activator &#x6539;&#x4E3A;&#x5E94;&#x7528; pod</p>
+<pre><code>  $ kubectl get ep hello-go-6wdlw
+  NAME                     ENDPOINTS                                                            AGE
+  hello-go-6wdlw           10.244.0.102:8012,10.244.0.103:8012,10.244.0.104:8012 + 1 more...    2d22h
+</code></pre></li>
+</ul>
+<h3 id="&#x5C0F;&#x7ED3;">&#x5C0F;&#x7ED3;</h3>
+<p>&#x56E0;&#x4E3A; serving &#x6D89;&#x53CA;&#x7684; CRD &#x6BD4;&#x8F83;&#x591A;&#xFF0C;&#x8FD9;&#x91CC;&#x518D;&#x628A;&#x5B83;&#x4EEC;&#x7EDF;&#x4E00;&#x653E;&#x8FD9;&#x91CC;&#x68B3;&#x7406;&#x4E00;&#x4E0B;&#xFF0C;&#x4E00;&#x56FE;&#x80DC;&#x5343;&#x8A00;&#xFF1A;</p>
+<p><img src="crd-serving2.png" alt="crd-serving"></p>
 
                                 
                                 </section>
@@ -814,7 +964,7 @@ Data,
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Knative","level":"1.6.5","depth":2,"previous":{"title":"OpenFaas","level":"1.6.4","depth":2,"path":"InstallablePlatform/OpenFaas/OpenFaas.md","ref":"InstallablePlatform/OpenFaas/OpenFaas.md","articles":[]},"dir":"ltr"},"config":{"plugins":["livereload"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"coldTea214","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"Introduction.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"cncf-serverless 学习笔记","gitbook":"*"},"file":{"path":"InstallablePlatform/Knative/Knative.md","mtime":"2020-08-31T09:58:13.076Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-08-31T10:29:57.837Z"},"basePath":"../..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Knative","level":"1.6.5","depth":2,"previous":{"title":"OpenFaas","level":"1.6.4","depth":2,"path":"InstallablePlatform/OpenFaas/OpenFaas.md","ref":"InstallablePlatform/OpenFaas/OpenFaas.md","articles":[]},"dir":"ltr"},"config":{"plugins":["livereload"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"coldTea214","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"Introduction.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"cncf-serverless 学习笔记","gitbook":"*"},"file":{"path":"InstallablePlatform/Knative/Knative.md","mtime":"2020-08-31T12:09:10.346Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-08-31T12:09:45.355Z"},"basePath":"../..","book":{"language":""}});
         });
     </script>
 </div>

@@ -39,29 +39,27 @@ serving、eventing 实际更新的内容很多，项目在很活跃的发展，�
 
 结合实战来学习本 repo
 
-## 安装
-
 注：knative 0.17 需要 k8s 1.16+
 
-### 安装 client
+## 安装 client
 
 ```
 $ curl https://github.com/knative/client/releases/download/v0.16.0/kn-linux-amd64 -o kn \
     && chmod +x kn && sudo mv kn /usr/local/bin/
 ```
 
-### 安装 istio
+## 安装 istio
 
 安装 knative 需要选择安装一个网络层，可选的包括 Ambassador、Contour、Gloo、Istio、Kong、Kourier，这里选择 istio
 
-#### 安装 istio client
+### 安装 istio client
 
 ```
 $ curl -L https://github.com/istio/istio/releases/download/1.6.8/istio-1.6.8-linux-amd64.tar.gz -o istio-1.6.8.tar \
     && tar -xf istio-1.6.8.tar && sudo mv istio-1.6.8/bin/istioctl /usr/local/bin/
 ```
 
-#### 安装 istio server
+### 安装 istio server
 
 本篇不是对 istio 做介绍，这里就选用最简单的方式，通过 istio operator 来安装 istio server
 
@@ -115,7 +113,9 @@ istio-ingressgateway-75d5967d8c-pr2t5    1/1     Running   0          41h
 istiod-95c865c7b-c9cmv                   1/1     Running   0          41h
 ```
 
-### 安装 serving
+## 安装 serving
+
+### 安装
 
 ```
 $ kubectl apply -f https://github.com/knative/serving/releases/download/v0.17.0/serving-crds.yaml
@@ -142,7 +142,7 @@ networking-istio-5d68bb7d56-qrlfh   1/1     Running   0          40h
 webhook-85758f4589-mckkp            1/1     Running   0          42h
 ```
 
-### 验证 serving
+### 验证
 
 ```
 $ kn service create hello-serving --image gcr.io/knative-samples/helloworld-go@sha256:5ea96ba4b872685ff4ddb5cd8d1a97ec18c18fae79ee8df0d29f446c5efe5f50
@@ -164,7 +164,9 @@ $ curl -H "Host: hello-serving.default.example.com" http://$INTERNAL_INGRESS_HOS
 Hello World!
 ```
 
-### 安装 eventing
+## 安装 eventing
+
+### 安装
 
 ```
 $ kubectl apply -f https://github.com/knative/eventing/releases/download/v0.17.0/eventing-crds.yaml
@@ -187,7 +189,7 @@ mt-broker-filter-657cbfbcf6-7pzkj      1/1     Running   0          19h
 mt-broker-ingress-6b5598b45d-pbzf7     1/1     Running   0          19h
 ```
 
-### 验证 eventing
+### 验证
 
 验证用的4个 yaml 文件：
 
