@@ -275,7 +275,7 @@ spec:
 $ kubectl create ns hello-eventing
 $ kubectl apply -f broker.yaml -f consumer.yaml -f trigger.yaml -f producer.yaml
 $ kubectl -n hello-eventing attach curl -it
-[ root@curl:/ ]$ curl "http://broker-ingress.knative-eventing.svc.cluster.local/hello-eventing/default" -X POST -H "Ce-Id: say-hello" -H "Ce-Specversion: 1.0" -H "Ce-Type: greeting" -H "Ce-Source: not-sendoff" -d {"msg":"hello, world!"}
+[ root@curl:/ ]$ curl "http://broker-ingress.knative-eventing.svc.cluster.local/hello-eventing/default" -X POST -H "Ce-Id: say-hello" -H "Ce-Specversion: 1.0" -H "Ce-Type: greeting" -H "Ce-Source: not-sendoff" -H "Content-Type: application/json" -d {"msg":"hello, world!"}
 [ root@curl:/ ]$ exit
 $ kubectl -n hello-eventing logs -l app=hello-display --tail=2
 Data,
@@ -339,3 +339,204 @@ eventing 整体架构是：
 	* xxc-dispatcher 负责 event 的接收、转发，而 xxc 则是对应的 channel provider，如 kafka。imc 比较特殊，相应功能直接在 dispatcher 里实现的
 
 在使用小节会结合实例来详细说明
+
+# 概念
+
+## serving
+
+serving 引入了 Service(ksvc)、Route(rt)、Configuration(cfg) 和 Revision(rev) 4个面向用户的 CRD。4者的关系是：
+
+![crd-serving](./crd-serving.png)
+
+[图片来源](https://knative.dev/v0.14-docs/serving/#serving-resources)
+
+具体来说：
+
+* ksvc 包含了用户部署应用的所有信息
+* rt 是应用版本路由信息，信息来自 ksvc
+* cfg 包含应用容器模板信息，信息来自 ksvc
+* rev 由 cfg 实例化而来，是 deploy 的信息来源。每修改一次 cfg，都会产生新的 rev
+
+除了上面提及的 ksvc、rt、cfg 和 rev 外，实际上 serving 还有一些 CRD：Ingresses(king)、ServerlessService(sks)、PodAutoscaler(kpa)，这些会在使用小节结合实例说明
+
+# 使用
+
+## 基本功能-serving
+
+本小节会按照“从零开始写一个 go 应用”的流程，来梳理功能
+
+### 编写 go 代码
+
+```
+$ cat hello.go
+package main
+
+import (
+	"fmt"
+	"log"
+	"net/http"
+)
+
+func handler(w http.ResponseWriter, r *http.Request) {
+	fmt.Fprintf(w, "hello, world!\n")
+}
+
+func main() {
+	http.HandleFunc("/", handler)
+	port := "8080"
+	log.Fatal(http.ListenAndServe(fmt.Sprintf(":%s", port), nil))
+}
+```
+
+在 serving 体系下编写 go 应用，跟常规 go web 开发并无区别
+
+### 构造镜像
+
+```
+$ cat Dockerfile
+FROM golang:1.13 as builder
+WORKDIR /app
+COPY . ./
+RUN CGO_ENABLED=0 GOOS=linux go build -v -o server
+
+FROM alpine:3
+RUN apk add --no-cache ca-certificates
+COPY --from=builder /app/server /server
+CMD ["/server"]
+
+$ docker build . -t dev.local/hello-go:serving
+```
+
+常规编译，没什么要补充的
+
+### 部署应用
+
+```
+$ cat service.yaml
+apiVersion: serving.knative.dev/v1
+kind: Service
+metadata:
+  name: hello-go
+spec:
+  template:
+    spec:
+      containers:
+      - image: dev.local/hello-go:serving
+
+$ kubectl apply -f service.yaml
+```
+
+创建 ksvc 涉及的完整流程是：
+
+* 创建了 ksvc
+
+	```
+	kubectl get ksvc
+	NAME       URL                                   LATESTCREATED    LATESTREADY      READY   REASON
+	hello-go   http://hello-go.default.example.com   hello-go-6wdlw   hello-go-6wdlw   True
+	```
+* controller 依据 ksvc 创建了对应的 rt、cfg
+
+	```
+	$ kubectl get rt
+	NAME       URL                                   READY   REASON
+	hello-go   http://hello-go.default.example.com   True
+	$ kubectl get cfg
+	NAME       LATESTCREATED    LATESTREADY      READY   REASON
+	hello-go   hello-go-6wdlw   hello-go-6wdlw   True
+	```
+* controller 依据 cfg 创建了对应的 rev
+
+	```
+	$ kubectl get rev
+	NAME             CONFIG NAME   K8S SERVICE NAME   GENERATION   READY   REASON
+	hello-go-6wdlw   hello-go      hello-go-6wdlw     1            True
+	```
+* controller 依据 rt 创建了 king
+
+	```
+	$ kubectl get king
+	NAME       READY   REASON
+	hello-go   True
+	```
+* networking-istio 依据 king 创建了 VirtualService(vs)，后者是 istio CRD，接下来就是 istio 的逻辑了，这里就不再展开 
+
+	```
+	$ kubectl get vs
+	NAME               GATEWAYS                                                                          HOSTS                                                                                                     AGE
+	hello-go-ingress   [knative-serving/cluster-local-gateway knative-serving/knative-ingress-gateway]   [hello-go.default hello-go.default.example.com hello-go.default.svc hello-go.default.svc.cluster.local]   2d20h
+	hello-go-mesh      [mesh]                                                                            [hello-go.default hello-go.default.svc hello-go.default.svc.cluster.local]                                2d20h
+	```
+* controller 依据 rev 创建了 kpa
+
+	```
+	$ kubectl get kpa
+	NAME             DESIREDSCALE   ACTUALSCALE   READY   REASON
+	hello-go-6wdlw   0              0             False   NoTraffic
+	```
+* autoscaler 依据 kpa 创建了 sks
+
+	```
+	$ kubectl get sks
+	NAME             MODE    ACTIVATORS   SERVICENAME      PRIVATESERVICENAME       READY     REASON
+	hello-go-6wdlw   Proxy   2            hello-go-6wdlw   hello-go-6wdlw-private   Unknown   NoHealthyBackends
+	```
+* controller 依据  rev 创建了 deploy
+* svc 的创建要稍微麻烦一些，实际上创建了3个 service
+
+	```
+	$ kubectl get svc
+	NAME                     TYPE           CLUSTER-IP       EXTERNAL-IP                                            PORT(S)                             AGE
+	hello-go                 ExternalName   <none>           cluster-local-gateway.istio-system.svc.cluster.local   <none>                              2d21h
+	hello-go-6wdlw           ClusterIP      10.96.213.237    <none>                                                 80/TCP                              2d21h
+	hello-go-6wdlw-private   ClusterIP      10.108.110.187   <none>                                                 80/TCP,9090/TCP,9091/TCP,8022/TCP   2d21h
+	```
+	我们的用例只用到了其中一个，其它的如 hello-go，是用于外部域名到内部域名映射用的，我们用例中不涉及
+* 注意一些细节，比如：svc 是指向 activator 的；部分 svc 没有 selector（Knative 自己来同步）
+
+	```
+	$ kubectl get ep hello-go-6wdlw
+	NAME             ENDPOINTS          AGE
+	hello-go-6wdlw   10.244.0.71:8012   2d21h
+	$ kubectl -n knative-serving get pod activator-68cbc9b5c7-6fsc2 -o wide
+	NAME                         READY   STATUS    RESTARTS   AGE     IP            NODE           NOMINATED NODE   READINESS GATES
+	activator-68cbc9b5c7-6fsc2   1/1     Running   0          5d17h   10.244.0.71   n227-020-128   <none>           <none>
+	```
+
+### 访问应用
+
+```
+# 查看应用 URL 后访问
+$ kubectl get ksvc
+NAME       URL                                   LATESTCREATED    LATESTREADY      READY   REASON
+hello-go   http://hello-go.default.example.com   hello-go-6wdlw   hello-go-6wdlw   True
+$ curl -H "Host: hello-go.default.example.com" http://$INTERNAL_INGRESS_HOST
+hello, world!
+```
+
+访问应用涉及的完整流程是：
+
+* 访问请求发送到 istio gateway
+* istio 会完成域名到 k8s svc 的解析，访问请求转发到 activator
+* activator 触发 deploy 扩容
+* 访问新建 pod，返回响应
+
+如果是较为频繁的访问，则还会触发其它的逻辑
+
+```
+$ hey -n 1000000 -c 300 -m GET -host hello-go.default.example.com http://$INTERNAL_INGRESS_HOST
+```
+* autoscaler 更新 sks
+* controller 更新 ep，由 activator 改为应用 pod
+
+	```
+	$ kubectl get ep hello-go-6wdlw
+	NAME                     ENDPOINTS                                                            AGE
+	hello-go-6wdlw           10.244.0.102:8012,10.244.0.103:8012,10.244.0.104:8012 + 1 more...    2d22h
+	```
+
+### 小结
+
+因为 serving 涉及的 CRD 比较多，这里再把它们统一放这里梳理一下，一图胜千言：
+
+![crd-serving](crd-serving2.png)
