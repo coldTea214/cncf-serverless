@@ -19,4 +19,8 @@
 	* [Kubeless](InstallablePlatform/Kubeless/Kubeless.md)
 	* [OpenFaas](InstallablePlatform/OpenFaas/OpenFaas.md)
 	* [Knative](InstallablePlatform/Knative/Knative.md)
-
+		* [最近 release](InstallablePlatform/Knative/release.md)
+		* [部署](InstallablePlatform/Knative/install.md)
+		* [架构](InstallablePlatform/Knative/architecture.md)
+		* [概念](InstallablePlatform/Knative/concept.md)
+		* [基本使用](InstallablePlatform/Knative/basic_usage.md)
