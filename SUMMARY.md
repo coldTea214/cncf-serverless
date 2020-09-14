@@ -24,3 +24,4 @@
 		* [架构](InstallablePlatform/Knative/architecture.md)
 		* [概念](InstallablePlatform/Knative/concept.md)
 		* [基本使用](InstallablePlatform/Knative/basic_usage.md)
+		* [event source](InstallablePlatform/Knative/event_source.md)
