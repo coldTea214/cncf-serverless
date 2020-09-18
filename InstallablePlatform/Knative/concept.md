@@ -19,7 +19,13 @@ serving 引入了 Service(ksvc)、Route(rt)、Configuration(cfg) 和 Revision(re
 
 eventing 引入了 Broker(broker)、Trigger(trigger) 2个面向用户的 CRD。具体来说：
 
-* broker 主要包含 channel 相关信息
-* trigger 包含了事件消费相关信息，包括源 broker、关注条件 filter、订阅方 subscriber
+* broker 是 event producer、consuer 之间的 "中间商"，基于 channel 来做转发，一个 broker 对应一个 channel provider
+* trigger 绑定到 broker，记录了什么 consumer 订阅了什么样的事件
 
-除了上面提及的 broker、trigger，实际上 eventing 还有一些 CRD：InMemoryChannel(imc)，这些会在使用小节结合实例说明
+除了上面提及的 broker、trigger，实际上 eventing 还有一些 CRD：
+
+* InMemoryChannel(imc)，是缺省 channel provider 关联的 CRD
+* event source 相关 CRD，包括 ApiserverSource、ContainerSource、PingSource、SinkBinding
+* event flows 相关 CRD，包括 Sequence、Parallel
+
+这些会在使用小节结合实例说明
