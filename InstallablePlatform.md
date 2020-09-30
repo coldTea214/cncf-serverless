@@ -26,11 +26,11 @@ Installable Platform 是一些开源的 serverless 平台 or 增强组件。包�
 | [OpenFaas 子项目] faas-netes | 2017.07 | 1.6k | Go | 0.12.2(2020.07) |
 | [OpenFaas 子项目] faas-idler | 2018.05 | 48 | Go | 0.3.0(2020.03) |
 
+下面，针对通用的 serverless 平台以及当前最活跃的 Knative 项目，再展开说明
+
 参考文献：
 
 * [Application Scalability, Part 3: Knative and KEDA](https://www.polidea.com/blog/application-scalability-part-3-knative-and-keda/)
 * [Kyma - 轻松扩展和构建Kubernetes](https://cloud.tencent.com/developer/article/1548611)
 * [Serverless：能简化数据科学项目吗](https://www.shangyexinzhi.com/article/177835.html)
 * [An intro to project riff](https://files.gotocon.com/uploads/slides/conference_12/647/original/Eric%20BOTTARD%20-%20An%20intro%20to%20project%20riff.pdf)
-
-下面，针对通用的 serverless 平台，再展开说明
