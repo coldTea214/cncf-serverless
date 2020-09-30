@@ -26,3 +26,6 @@
 		* [基本使用](InstallablePlatform/Knative/basic_usage.md)
 		* [event source](InstallablePlatform/Knative/event_source.md)
 		* [event flows](InstallablePlatform/Knative/event_flows.md)
+* [WG Serverless](./WGServerless.md)
+	* [cloud events](WGServerless/CloudEvents/cloud_events.md)
+	* [workflow 规范](WGServerless/WorkFlow/work_flow.md)
