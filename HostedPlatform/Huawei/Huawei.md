@@ -1,4 +1,4 @@
-[官网地址](https://www.huaweicloud.com/product/functionstage.html)
+[官网地址](https://www.huaweicloud.com/product/functiongraph.html)
 
 # 功能列表
 
@@ -19,7 +19,8 @@
 * 高可用：实例出现问题，系统会自动调度新的函数处理请求
 * 事件触发
 	* 华为云服务事件触发
-	* Http 触发
+	* Http 触发器
+	* 时间触发器
 * 指标和日志
 	* 函数指标监控：提供调用次数，错误次数，拒绝次数，调用时延等关键指标监控
 	* 函数的运行日志：记录函数的运行日志，提供灵活的日志查询功能
