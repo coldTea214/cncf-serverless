@@ -1,1 +1,1 @@
-Hosted Platform 主要就是一些提供 serverless 功能的云平台，这里主要介绍一些国际和国内主流平台
+Hosted Platform 主要就是一些提供 serverless 功能的云平台，这里主要介绍一下国际和国内主流平台
