@@ -2,7 +2,7 @@
 
 # 功能列表
 
-华为 FunctionStage 提供的功能包括：
+华为 FunctionGraph 提供的功能包括：
 
 * 函数管理
 	* 在线代码编辑：Python，Node.js等脚本语言支持用户在线编辑代码，支持语法高亮
@@ -27,7 +27,7 @@
 
 # 产品更新
 
-截至 2020.09，阿里云函数计算 release note：
+截至 2020.09，华为 FunctionGraph release note：
 
 ![release-note](./release.png)
 
