@@ -51,3 +51,14 @@ AWS Lambda 功能[原文描述](https://aws.amazon.com/cn/lambda/features/)，�
 
 AWS 近期的改动总体比较常规，基本都是为了更好的支持开发者以及融入 AWS 生态相关
 
+# 使用场景
+
+| 场景 | 细分场景 | 案例描述 |
+|-----|---------|--------|
+| 数据处理 | 实时文件处理 | ![user-case1](./user-case1.png) |
+| | 实时数据流处理 | ![user-case2](./user-case2.png) |
+| | 机器学习 | 在 Aible，我们致力于以最低的运营成本提供最强大的 AI 技术。因此，我们使用 AWS Lambda 和 Serverless 进行机器学习训练和预测。借助 Serverless，我们可以更经济高效地运行各种机器学习工作负载，同时受益于快速迭代和扩展所需的突发计算资源，从而更好地开发 AI 技术以实现最佳业务影响 |
+| 后端 | Web 应用程序 | ![user-case4](./user-case4.png) |
+| | IoT 后端 | ![user-case5](./user-case5.png) |
+| | 移动后端 | ![user-case6](./user-case6.png) |
+

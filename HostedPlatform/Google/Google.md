@@ -32,3 +32,16 @@ Google cloud functions release note：https://cloud.google.com/functions/docs/re
 | 2020.03.31 |  函数集成 Google 服务 | now supports Connecting to Cloud SQL at the General Availability release level... |
 
 Google 近期的改动也比较常规
+
+# 使用场景
+
+| 场景 | 案例描述 |
+|----|--------|
+| 与第三方服务及 API 集成 | ![user-case1](./user-case1.svg) |
+| 无服务器移动后端 | ![user-case2](./user-case2.svg) |
+| 无服务器 IoT 后端 | ![user-case3](./user-case3.svg) |
+| 实时文件处理 | ![user-case4](./user-case4.svg) |
+| 实时流处理 | ![user-case5](./user-case5.svg) |
+| 虚拟助理和对话式体验 | ![user-case6](./user-case6.svg) |
+| 视频和图片分析 | ![user-case7](./user-case7.svg) |
+| 情感分析 | ![user-case8](./user-case8.svg) |

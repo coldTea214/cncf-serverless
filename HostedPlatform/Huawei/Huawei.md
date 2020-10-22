@@ -32,3 +32,12 @@
 ![release-note](./release.png)
 
 华为云的更新也比较常规，值得注意的是预留实例功能于 2020.06.27 推出（作为对比，阿里云是 2019.09.12）
+
+# 使用场景
+
+| 场景 | 案例描述 |
+|-----|--------|
+| 实时文件处理 | ![user-case1](./user-case1.svg) |
+| 实时数据流处理 | ![user-case2](./user-case2.svg) |
+| Web/移动应用后端 | ![user-case3](./user-case3.svg) |
+| 人工智能场景 | ![user-case4](./user-case4.svg) |

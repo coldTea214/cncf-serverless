@@ -30,3 +30,14 @@ Azure Functions release note：https://azure.microsoft.com/zh-cn/updates/?produc
 | 2020.03.24 | 函数集成 Azure 服务 | Azure Functions 高级计划区域虚拟网络集成 |
 
 Azure 的改动也比较常规，除了对 Durable Function 的持续投入
+
+# 使用场景
+
+| 场景 | 案例描述 |
+|-----|--------|
+| 无服务器 API | 具有 Node.js 或 Microsoft .NET 的无服务器 API |
+| Web 应用程序 | ![user-case2](./user-case2.png) |
+| 微服务 | ![user-case3](./user-case3.png) |
+| 机器学习 | 具有无服务器体系结构的机器学习工作流 |
+| 数据处理 | ![user-case5](./user-case5.png) |
+| 云自动化 | ![user-case6](./user-case6.png) ||
