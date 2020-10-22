@@ -47,3 +47,11 @@
 | 实时数据处理 | ![user-case2](./user-case2.png) |
 | AI 推理 | ![user-case3](./user-case3.png) |
 | 视频转码 | ![user-case4](./user-case4.png) |
+
+# 重点功能
+
+## 冷启动
+
+官方文档：[函数计算冷启动优化最佳实践](https://www.alibabacloud.com/help/zh/doc-detail/140338.htm?spm=a2c63.l28256.a3.52.c3bb3b2a9CGB5F)
+
+阿里云提供的冷启动优化主要是预留实例，其它的都是对开发者的一些建议，如使用定时触发器预热函数；使用 Initializer 函数入口，函数计算会异步调用初始化接口

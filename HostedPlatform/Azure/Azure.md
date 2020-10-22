@@ -41,3 +41,12 @@ Azure 的改动也比较常规，除了对 Durable Function 的持续投入
 | 机器学习 | 具有无服务器体系结构的机器学习工作流 |
 | 数据处理 | ![user-case5](./user-case5.png) |
 | 云自动化 | ![user-case6](./user-case6.png) ||
+
+# 重点功能
+
+## 冷启动
+
+官方文档：[了解和解决冷启动](https://docs.microsoft.com/zh-cn/azure/architecture/serverless-quest/functions-app-operations#understand-and-address-cold-starts)
+
+Azure Functions 对冷启动的优化主要是靠[托管计划](https://docs.microsoft.com/zh-cn/azure/azure-functions/functions-scale)，本质上与阿里云预留实例一样。其它的都是建议性质的，如在函数应用中尽量使用异步操作
+>>>>>>> af59292... 增加各大主流云厂商冷启动相关的说明

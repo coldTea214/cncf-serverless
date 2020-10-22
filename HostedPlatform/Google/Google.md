@@ -45,3 +45,11 @@ Google 近期的改动也比较常规
 | 虚拟助理和对话式体验 | ![user-case6](./user-case6.svg) |
 | 视频和图片分析 | ![user-case7](./user-case7.svg) |
 | 情感分析 | ![user-case8](./user-case8.svg) |
+
+# 重点功能
+
+## 冷启动
+
+官方文档：[最佳实践-提示与技巧](https://cloud.google.com/functions/docs/bestpractices/tips)
+
+这篇文档是全局的一些最佳实践，冷启动是其中的一部分。Cloud Functions 针对冷启动的优化都是些建议性质的

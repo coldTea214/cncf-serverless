@@ -53,3 +53,11 @@
 | 数据 ETL 处理 | ![user-case2](./user-case2.svg) |
 | 移动及 Web 应用后端 | ![user-case3](./user-case3.svg) |
 | AI 推理预测 | ![user-case4](./user-case4.svg) |
+
+# 重点功能
+
+## 冷启动
+
+官方文档：[预置并发](https://cloud.tencent.com/document/product/583/46743)
+
+SCF 针对冷启动的优化，与前面诸平台没太大差异

@@ -41,3 +41,14 @@
 | 实时数据流处理 | ![user-case2](./user-case2.svg) |
 | Web/移动应用后端 | ![user-case3](./user-case3.svg) |
 | 人工智能场景 | ![user-case4](./user-case4.svg) |
+
+# 重点功能
+
+## 冷启动
+
+官方文档：
+
+* [预留实例优化冷启动](https://support.huaweicloud.com/usermanual-functiongraph/functiongraph_01_0306.html)
+* [Initializer 优化冷启动](https://support.huaweicloud.com/devg-functiongraph/functiongraph_02_0533.html)
+
+华为云针对冷启动的优化，与前面诸平台没太大差异

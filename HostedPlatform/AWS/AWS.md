@@ -62,3 +62,10 @@ AWS 近期的改动总体比较常规，基本都是为了更好的支持开发�
 | | IoT 后端 | ![user-case5](./user-case5.png) |
 | | 移动后端 | ![user-case6](./user-case6.png) |
 
+# 重点功能
+
+## 冷启动
+
+官方文档：[AWS Lambda best practice](https://d1.awsstatic.com/whitepapers/serverless-architectures-with-aws-lambda.pdf)
+
+上述文档是 Lambda 最佳实践合集，冷启动是其中的一部分。Lambda 针对冷启动的优化都是建议性质的，如尽量不要使用 VPC
