@@ -49,7 +49,7 @@
 
 | 场景 | 案例描述 |
 |-----|--------|
-| 实时文件处理 | ![user-case1](./user-case1.svg) |
+| 实时文件处理 | ![user-case1](./user-case1.png) |
 | 数据 ETL 处理 | ![user-case2](./user-case2.svg) |
 | 移动及 Web 应用后端 | ![user-case3](./user-case3.svg) |
 | AI 推理预测 | ![user-case4](./user-case4.svg) |
