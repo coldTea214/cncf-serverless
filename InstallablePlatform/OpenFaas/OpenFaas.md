@@ -4,10 +4,12 @@
 
 # 最近 release
 
-开始学习之前，先看看本 repo 最近在干什么
+开始学习之前，先看看本 repo 最近在干什么（截至 2020.10）:
 
 ## OpenFaas
 
+* 0.19.0 [2020.10]
+	* Security update for UI (AngularJS & Material)
 * 0.18.18 [2020.07]
 	* Remove service namespace from scale request
 * 0.18.17 [2020.04]
@@ -17,6 +19,8 @@
 
 ##  faas-netes
 
+* 0.12.3 [2020.09]
+	* Support function resolution in multiple namespaces
 * 0.12.0 [2020.07]
 	* Create new Policy client and type so that we can read Policy
 configurations
@@ -27,7 +31,7 @@ configurations
 * 0.10.5 [2020.05]
 	* Update apply REST handler
 
-跟 fission、kubelsss 类似，没有太多功能性的改动
+跟 fission、kubelsss 类似，没有太多功能性的改动。不过以 0.12.0（2020.07.15）、0.12.1（2020.07.20）、0.12.2（2020.07.20），发布密集、功能改动少，版本管理还是有点别具一格
 
 # 部署
 

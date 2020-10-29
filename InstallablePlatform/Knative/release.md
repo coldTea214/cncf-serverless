@@ -1,29 +1,31 @@
-开始学习之前，先看看本 repo 最近在干什么
+开始学习之前，先看看本 repo 最近在干什么（截至 2020.10）
 
 # serving
 
-* [0.17.0](https://github.com/knative/serving/releases/tag/v0.17.0) [2020.08]
+* [0.18.0](https://github.com/knative/serving/releases/tag/v0.18.0) [2020.09]
 	* Meta
-		* initialScale annotation to control the initial deployment size
-		* net-contour and net-kourier have moved to Beta
+		* Serving v1alpha1 & v1beta1 will EOL in our next release (v0.19)
+		* Kubernetes minimum version has changed to v1.17
 	* Autoscaling
-		* Launched new KPA statuses, which permit significant simplification of the state machine in revision and KPA itself
-		* Concurrency & stat reporting rewrite in Activator
+		* Improving performance, memory allocation, testability and readability of the codebase
+		* Max Scale Limit configuration
 	* Core API
-		* Leader Election enabled by default
-		* Adopt a two-lane work queue for our controllers to prevent starvation during global re-syncs pkg
+		* Add support for serviceAccountToken in projected volumes
+		* Added RuntimeClassName feature flag
 	* Networking
-		* Code in knative/serving/pkg/network is completely moved to knative/networking repo
-		* Kingress (net-istio) introduces RewriteHost feature
+		* Net-contour is moved to stable stage
+		* Allow disabling AutoTLS with an annotation
+* [0.17.0](https://github.com/knative/serving/releases/tag/v0.17.0) [2020.08]
 * [0.16.0](https://github.com/knative/serving/releases/tag/v0.16.0) [2020.07]
 * [0.15.0](https://github.com/knative/serving/releases/tag/v0.15.0) [2020.05]
 
 # eventing
 
+* [0.18.0](https://github.com/knative/eventing/releases/tag/v0.18.0) [2020.09]
+	* Allow MTChannelBroker TTL to be configured via ENV variable
+	* PingSource adapter now uses bucket-based leader election
+	* PingSource adapter deployment can now be customized at installation time
 * [0.17.0](https://github.com/knative/eventing/releases/tag/v0.17.0) [2020.08]
-	* ContainerSource、SinkBinding is now in v1beta1
-	* Eventing conformance tests now can validate Sources status conformance
-	* PingSource now supports setting the time zone
 * [0.16.0](https://github.com/knative/eventing/releases/tag/v0.16.0) [2020.07]
 * [0.15.0](https://github.com/knative/eventing/releases/tag/v0.15.0) [2020.05]
 
