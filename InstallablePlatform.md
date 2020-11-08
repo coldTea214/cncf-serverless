@@ -5,7 +5,7 @@ Installable Platform 是一些开源的 serverless 平台 or 增强组件。包�
 * [AppScale](https://www.appscale.com/)：[项目地址](https://www.appscale.com/)，这是一个很老的项目了，2011年4月启动的项目，最初目的是提供和 GAE 兼容的平台，后续开始转向对 AWS 的支持
 * [Fission](https://fission.io/)：[项目地址](https://github.com/fission/fission)，Platform9 创立的开源 serverless 平台
 * [Keda](https://keda.sh/)：[项目地址](https://github.com/kedacore/keda)，Kubernetes Event-driven Autoscaling。最初是 Microsoft 主导的，后续捐赠给了 CNCF 孵化。这个项目只有一个目的，可以理解为一个强化版本的 HPA
-* [Knative](https://github.com/knative/docs/)：[项目地址](https://github.com/knative/serving)，Google 主导的开源项目，本质上与 Keda 是类似的项目，不过 Keda 要轻量不少（knative 的完整部署还依赖 Gloo、Istio 之类的项目）
+* [Knative](https://github.com/knative/docs/)：[项目地址](https://github.com/knative/serving)，Google 主导的开源项目，Google 商业函数计算产品 Cloud Function 即基于此开源项目，目前仍积极维护中
 * [Kubeless](https://kubeless.io/)：[项目地址](https://github.com/kubeless/kubeless)，Bitnami 创立的开源 serverless 平台
 * [Kyma](https://kyma-project.io/)：[项目地址](https://github.com/kyma-project/kyma)，这是一个旨在云原生世界，连接和扩展企业应用的项目
 * [Nuclio](https://nuclio.io/)：[项目地址](https://github.com/nuclio/nuclio)，这是一个针对数据科学优化的 serverless 平台，这从它的卖点，例如与 Jupyter 的集成，就可以看出项目的倾向性
@@ -32,7 +32,6 @@ Installable Platform 是一些开源的 serverless 平台 or 增强组件。包�
 
 参考文献：
 
-* [Application Scalability, Part 3: Knative and KEDA](https://www.polidea.com/blog/application-scalability-part-3-knative-and-keda/)
 * [Kyma - 轻松扩展和构建Kubernetes](https://cloud.tencent.com/developer/article/1548611)
 * [Serverless：能简化数据科学项目吗](https://www.shangyexinzhi.com/article/177835.html)
 * [An intro to project riff](https://files.gotocon.com/uploads/slides/conference_12/647/original/Eric%20BOTTARD%20-%20An%20intro%20to%20project%20riff.pdf)
