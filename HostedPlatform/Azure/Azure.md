@@ -49,4 +49,15 @@ Azure 的改动也比较常规，除了对 Durable Function 的持续投入
 官方文档：[了解和解决冷启动](https://docs.microsoft.com/zh-cn/azure/architecture/serverless-quest/functions-app-operations#understand-and-address-cold-starts)
 
 Azure Functions 对冷启动的优化主要是靠[托管计划](https://docs.microsoft.com/zh-cn/azure/azure-functions/functions-scale)，本质上与阿里云预留实例一样。其它的都是建议性质的，如在函数应用中尽量使用异步操作
->>>>>>> af59292... 增加各大主流云厂商冷启动相关的说明
+
+# 特色功能
+
+## durable functions
+
+官方文档：[什么是 Durable Functions](https://docs.microsoft.com/zh-cn/azure/azure-functions/durable/durable-functions-overview?tabs=csharp)
+
+上述文档对 durable function 的使用场景描述的比较清楚，这里稍作一些说明：
+
+* durable function 对一些常见模式做了封装，用普通函数也能实现，只是用户代码复杂一些。如[扇出/扇入场景](https://docs.microsoft.com/zh-cn/azure/azure-functions/durable/durable-functions-overview?tabs=csharp#pattern-2-fan-outfan-in)，普通函数如果跟踪所有扇出函数的完成状况，需要编写额外的控制代码
+* 用其它的工具也能实现 durable function 的部分功能，只是管理更复杂、不够灵活。如[监视场景](https://docs.microsoft.com/zh-cn/azure/azure-functions/durable/durable-functions-overview?tabs=csharp#pattern-4-monitor)，普通函数的话可能需要配合时间触发器，还得自己调整控制轮询间隔等等，有时还需要管理多个触发器
+* 其它云平台未必没有对应的能力，只是没有提炼、总结出独立的产品。如[函数链场景](https://docs.microsoft.com/zh-cn/azure/azure-functions/durable/durable-functions-overview?tabs=csharp#pattern-1-function-chaining)，某个函数失败只会在当前进度重试，不会全量重试，其它云平台可能也有对应能力
