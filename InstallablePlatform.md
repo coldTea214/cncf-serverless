@@ -12,7 +12,7 @@ Installable Platform 是一些开源的 serverless 平台 or 增强组件。包�
 * [OpenFaaS](https://www.openfaas.com/)：[项目地址](https://github.com/openfaas/faas)，一个爱好者创立的开源项目，最初是基于 swarm 的，后面增加了对 k8s 的支持
 * [PipelineAI](https://pipeline.ai/)：[项目地址](https://github.com/pipelineai/pipeline)，从名字也可以看出，这是一个侧重于 AI 相关的框架
 * [Riff](https://projectriff.io/)：[项目地址](https://github.com/projectriff/riff)，这是一个基于 knative 的 faas 项目，提供了 cli，用于安装 knative 和其上部署函数，生成函数 invoker 等等
-* [Virtual Kubelet](https://github.com/virtual-kubelet)：[项目地址](https://github.com/virtual-kubelet/virtual-kubelet)，通过类 kubelet api，让人可以定制 node agent，屏蔽实际节点，实现 serverless
+* [Virtual Kubelet](https://github.com/virtual-kubelet)：[项目地址](https://github.com/virtual-kubelet/virtual-kubelet)，通过类 kubelet api，让人可以定制 node agent，屏蔽实际节点，将请求转发至 serverless 容器平台，如 ACI 和 Fargate
 
 其中，通用的 serverless 平台包括 Apache OpenWhisk、Fission、Kubeless 和 OpenFaas，这里先对这几个项目以及 Knative 简单对比一下（截止 2020.10）：
 
