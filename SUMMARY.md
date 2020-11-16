@@ -18,6 +18,7 @@
 	* [Fission](InstallablePlatform/Fission/Fission.md)
 	* [Kubeless](InstallablePlatform/Kubeless/Kubeless.md)
 	* [OpenFaas](InstallablePlatform/OpenFaas/OpenFaas.md)
+	* [KEDA](InstallablePlatform/KEDA/KEDA.md)
 	* [Knative](InstallablePlatform/Knative/Knative.md)
 		* [最近 release](InstallablePlatform/Knative/release.md)
 		* [部署](InstallablePlatform/Knative/install.md)

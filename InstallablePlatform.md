@@ -14,7 +14,7 @@ Installable Platform 是一些开源的 serverless 平台 or 增强组件。包�
 * [Riff](https://projectriff.io/)：[项目地址](https://github.com/projectriff/riff)，这是一个基于 knative 的 faas 项目，提供了 cli，用于安装 knative 和其上部署函数，生成函数 invoker 等等
 * [Virtual Kubelet](https://github.com/virtual-kubelet)：[项目地址](https://github.com/virtual-kubelet/virtual-kubelet)，通过类 kubelet api，让人可以定制 node agent，屏蔽实际节点，将请求转发至 serverless 容器平台，如 ACI 和 Fargate
 
-其中，通用的 serverless 平台包括 Apache OpenWhisk、Fission、Kubeless 和 OpenFaas，这里先对这几个项目以及 Knative 简单对比一下（截止 2020.10）：
+其中，通用的 serverless 平台包括 Apache OpenWhisk、Fission、Kubeless 和 OpenFaas，这里先对这几个项目以及 KEDA、Knative 简单对比一下（截止 2020.10）：
 
 | 项目 | 创立时间 | Star 数 | 主要语言 | 最新 release |
 |-----|---------|--------|---------|------------- |
@@ -25,10 +25,11 @@ Installable Platform 是一些开源的 serverless 平台 or 增强组件。包�
 | OpenFaas | 2016.12 | 18.6k | Go | 0.19.1(2020.10) |
 | [OpenFaas 子项目] faas-netes | 2017.07 | 1.6k | Go | 0.12.3(2020.09) |
 | [OpenFaas 子项目] faas-idler | 2018.05 | 54 | Go | 0.3.1(2020.10) |
+| KEDA | 2019.02 | 2.5k | Go | 1.5.0(2020.7) |
 | Knative/serving | 2018.01 | 3.4k | Go | 0.18.1(2020.10) |
 | Knative/eventing | 2018.03 | 909 | Go | 0.18.3(2020.10) |
 
-下面，针对通用的 serverless 平台和 Knative 项目，再展开说明
+下面，针对通用的 serverless 平台和 KEDA、Knative 项目，再展开说明
 
 参考文献：
 

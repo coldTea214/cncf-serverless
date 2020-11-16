@@ -54,8 +54,6 @@ create 是一个简单的 crud，下面结合架构图，来说一下 invoke 的
 * Trigger & Rule：通过 wsk action invoke 可以触发 action，但一般在生产环境，需要通过 trigger 和 rule 来触发。其中，trigger 由 feed 触发，rule 则绑定 trigger 和 action。具体内容可参考 [Creating triggers and rules](https://github.com/apache/openwhisk/blob/71b7d564ff60bf6e89be5410ffcf59f785d17a4a/docs/triggers_rules.md)
 * Feed：feed 是触发函数的事件源，OpenWhisk 支持三种 feed：Hooks, Polling 和 Connections。Hooks 指由一个 webhook 触发，如 github 提交代码；Polling 指靠 action 去主动轮询；Connections 则是指另起一个服务，它来关注事件源，在获取事件后，主动通知 OpenWhisk。具体内容可参考 [Implementing feeds](https://github.com/apache/openwhisk/blob/71b7d564ff60bf6e89be5410ffcf59f785d17a4a/docs/feeds.md)
 
-这里再对易混淆的 feed 和 trigger 对比说明一下。feed 是具体的事件源，trigger 是虚拟的触发器。具体来说，“博物馆人来了” 是一个 trigger，可以触发 “开门”、“亮灯” 等多个 action，此时，门口的 “摄像头1”、“摄像头2” 以及 “门口的大爷” 都是不同的 feed，它们都可以触发 trigger。从实现上来说，trigger 及后面所有对象、逻辑都是 OpenWhisk 内部逻辑，而 feed 则多是外部实现，它们最终通过 post 请求来触发 trigger
-
 # 其它
 
 OpenWhisk 还支持用户自定义自己的 runtime，具体内容可参考 [Developing a new Runtime with the ActionLoop proxy](https://github.com/apache/openwhisk/blob/71b7d564ff60bf6e89be5410ffcf59f785d17a4a/docs/actions-actionloop.md)
