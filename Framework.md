@@ -5,7 +5,7 @@ Framework 提供了开发 serverless 应用相关的框架，包括：
 * [Chalice](https://aws.amazon.com/cn/blogs/developer/chalice-1-0-0-ga-release/)：[开源项目](https://github.com/aws/chalice)，AWS python serverless 框架
 * [Dapr](https://dapr.io/)：[开源项目](https://github.com/dapr/dapr)，跨平台、跨语言，以 sidecar 的形式提供服务，并提供各语言 sdk 以封装 http/grpc 接口细节
 * [Flogo](https://www.flogo.io/)：[开源项目](https://github.com/TIBCOSoftware/flogo)，虽然是开源，但该公司也提供了付费商业版本。总的来说，Flogo 是一种允许开发人员使用基于浏览器的流程设计器构建基于 Go 的微服务、功能的技术
-* Midway Serverless：[开源地址](https://github.com/midwayjs/midway)，阿里巴巴开源的面向前端、全栈开发者的 Node.js serverless 框架
+* Midway Serverless：[开源项目](https://github.com/midwayjs/midway)，阿里巴巴开源的面向前端、全栈开发者的 Node.js serverless 框架
 * [Serverless](https://www.serverless.com/cn/)：[开源项目](https://github.com/serverless/serverless)，可以看作各大云厂商 sdk 的合集
 * [Sparta](https://gosparta.io/)：[开源项目](https://github.com/mweagle/Sparta)，基于 AWS Lambda 的 go 微服务框架
 * [Spring Cloud Function](https://spring.io/projects/spring-cloud-function)：[开源项目](https://github.com/spring-cloud/spring-cloud-function)，java 相关

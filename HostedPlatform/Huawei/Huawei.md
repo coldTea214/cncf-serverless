@@ -1,3 +1,9 @@
+首先要说明的是，虽然华为在 cncf landscape 里写的是 FunctionStage（20年11月），不过官网上注明：
+
+> 原函数服务FunctionStage和原函数工作流FunctionGraph两个服务已合并成一个新的服务，即函数工作流FunctionGraph
+
+FunctionStage 相关页面内容已有段时间没有更新了，下文以 FunctionGraph 来展开说明
+
 [官网地址](https://www.huaweicloud.com/product/functiongraph.html)
 
 # 功能列表
