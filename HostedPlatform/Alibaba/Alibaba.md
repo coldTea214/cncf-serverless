@@ -29,7 +29,7 @@
 
 更新内容反映的是产品迭代的方向
 
-截至 2020.09，阿里云函数计算 release note：
+截至 2020.12，阿里云函数计算 release note：
 
 ![release-note](./release.png)
 
