@@ -6,6 +6,7 @@ Installable Platform 是一些开源的 serverless 平台 or 增强组件。包�
 * [Fission](https://fission.io/)：[项目地址](https://github.com/fission/fission)，Platform9 创立的开源 serverless 平台
 * [Keda](https://keda.sh/)：[项目地址](https://github.com/kedacore/keda)，Kubernetes Event-driven Autoscaling。最初是 Microsoft 主导的，后续捐赠给了 CNCF 孵化。这个项目只有一个目的，可以理解为一个强化版本的 HPA
 * [Knative](https://github.com/knative/docs/)：[项目地址](https://github.com/knative/serving)，Google 主导的开源项目，Google 商业函数计算产品 Cloud Function 即基于此开源项目，目前仍积极维护中
+* [KNIX](https://knix.io/)：[项目地址](https://github.com/knix-microfunctions/knix)，最初由 Nokia 贝尔实验室开发，2020年4月开源，是一个自带 UI、开发者工具的 faas 平台，可基于 Knative 工作。与其它 faas 不同，本身并不包含函数扩缩等相关逻辑
 * [Kubeless](https://kubeless.io/)：[项目地址](https://github.com/kubeless/kubeless)，Bitnami 创立的开源 serverless 平台
 * [Kyma](https://kyma-project.io/)：[项目地址](https://github.com/kyma-project/kyma)，这是一个旨在云原生世界，连接和扩展企业应用的项目
 * [Nuclio](https://nuclio.io/)：[项目地址](https://github.com/nuclio/nuclio)，这是一个针对数据科学优化的 serverless 平台，这从它的卖点，例如与 Jupyter 的集成，就可以看出项目的倾向性
