@@ -4,8 +4,13 @@
 
 # 最近 release
 
-开始学习之前，先看看本 repo 最近在干什么（截至 2020.10）：
+开始学习之前，先看看本 repo 最近在干什么（截至 2020.12）：
 
+* 2.0.0 [2020.11]
+	* Introduce Azure Log Analytics scaler
+	* Introduce scaling any CustomResource that implements Scale subresource
+	* Provide KEDA go-client
+	* Provide KEDA readiness and liveness probes
 * 1.5.0 [2020.07]
 	* Introduce Active MQ Artemis scaler
 	* Introduce Redis Streams scaler

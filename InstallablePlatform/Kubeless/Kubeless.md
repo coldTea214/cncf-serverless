@@ -4,7 +4,7 @@
 
 # 最近 release
 
-开始学习之前，先看看本 repo 最近在干什么（截至 2020.10）：
+开始学习之前，先看看本 repo 最近在干什么（截至 2020.12）：
 
 * 1.0.7 [2020.06]
 	* Feature: CronJob Triggers docs + CronJob create --payload arg
