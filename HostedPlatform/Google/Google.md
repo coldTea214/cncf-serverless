@@ -16,20 +16,19 @@ Google cloud functions 功能（[原文描述](https://cloud.google.com/function
 
 Google cloud functions release note：https://cloud.google.com/functions/docs/release-notes
 
-截至 2020.12，相关的更新可以归纳为：
+截至 2021.01，相关的更新可以归纳为：
 
 | 更新时间 | 更新内容 | 具体 |
 |---------|--------|-----|
+| 2021.1.11 | 编程语言支持 | Cloud Functions has added support for a new runtime, Ruby, in Preview |
 | 2020.11.19 | 编程语言支持 | Cloud Functions has added support for a new runtime, .NET |
 | 2020.11.11 | 编程语言支持 | Cloud Functions now supports Python 3.8 |
 | 2020.10.13 | 开发者工具 | In runtimes that use buildpacks you can now configure aspects of your build |
 | 2020.08.26 | 编程语言支持 | Node 10 runtime now builds container images in the user's project... |
-| 2020.08.14 | 编程语言支持 | now supports Java 11 at the General Availability release level |
 | 2020.08.05 | 编程语言支持 | Java 11, Python 3.7 or 3.8, and Go 1.13 runtimes now build container images in the user's project... |
 | 2020.07.31 | nit（功能上线新机房）| Cloud Functions is now available in the following regions... |
 | 2020.07.23 | 函数集成 Google 服务 | Serverless VPC Access support for Shared VPC is now available in Beta |
 | 2020.07.15 | 编程语言支持 | has added support for a new runtime, Node 12, in Beta... |
-| 2020.07.07 | 函数集成 Google 服务 | allows you to use Cloud CDN and Cloud Armor with Google Cloud Functions... |
 
 Google 近期的改动也比较常规
 

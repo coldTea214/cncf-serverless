@@ -18,24 +18,29 @@
 * 便捷的开发工具
 	* [funcraft](https://github.com/alibaba/funcraft)：阿里自研的开发、构建、部署工具
 	* VSCode 插件
+	* [Tools](https://coldtea214.gitbook.io/cncf-serverless/tools) 章节提及的 Serverless Devs
+	* [Framework](https://coldtea214.gitbook.io/cncf-serverless/framework) 章节提及的 Midway Serverless
 * 丰富的资源类型
- 	* 按量实例：根据请求数动态扩缩
 	* 预留实例：针对冷启动的绕过方案
+	* 按量实例：根据请求数动态扩缩
+* 多样的实例类型
+	* 弹性实例：代码包上限为50 MB，函数执行时长上限为600s
+	* 性能实例：大规格实例，包含多种实例规格，资源上限更高，适配场景更多
 * 灵活的计量模式
-	* 后付费模型：按实际使用计算资源计费
-	* 预付费（包年包月）模型
+	* 按量付费模型：按实际使用计算资源计费
+	* 资源包模型：预付费（包年包月）模型
 
 # 产品更新
 
 更新内容反映的是产品迭代的方向
 
-截至 2020.12，阿里云函数计算 release note：
+截至 2021.01，阿里云函数计算 release note：
 
 ![release-note](./release.png)
 
 从上图可以看出，函数计算产品在 19 年还是更新的比较频繁，自 19.10 之后就没有新功能上线了
 
-注：在最新的产品页（2020.11），“产品动态”已经删去了
+注：在最新的产品页（2020.11），“产品动态”已经从官网删去了
 
 # 使用场景
 

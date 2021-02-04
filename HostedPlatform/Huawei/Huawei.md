@@ -1,4 +1,4 @@
-首先要说明的是，虽然华为在 cncf landscape 里写的是 FunctionStage（20年12月），不过官网上注明：
+首先要说明的是，虽然华为在 cncf landscape 里写的是 FunctionStage（21年01月），不过官网上注明：
 
 > 原函数服务FunctionStage和原函数工作流FunctionGraph两个服务已合并成一个新的服务，即函数工作流FunctionGraph
 
@@ -33,13 +33,9 @@ FunctionStage 相关页面内容已有段时间没有更新了，下文以 Funct
 
 # 产品更新
 
-截至 2020.12，华为 FunctionGraph release note：
+截至 2021.01，华为 FunctionGraph release note：
 
 ![release-note](./release.png)
-
-华为云的更新也比较常规，其中：
-
-* 预留实例功能于 2020.06.27 推出（作为对比，阿里云是 2019.09.12）
 
 # 使用场景
 

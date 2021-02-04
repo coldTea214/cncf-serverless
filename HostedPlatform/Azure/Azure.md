@@ -14,20 +14,20 @@ Azure Functions 功能（[原文描述](https://azure.microsoft.com/zh-cn/servic
 
 Azure Functions release note：https://azure.microsoft.com/zh-cn/updates/?product=functions
 
-截至 2020.12，相关的更新可以归纳为：
+截至 2021.01，相关的更新可以归纳为：
 
 | 更新时间 | 更新内容 | 具体 |
 |---------|--------|-----|
+| 2020.01.25 | 编程语言支持 | Python 3.9 in Azure Functions is now in public preview |
+| 2020.01.21 | 安全相关更新 | App Service Authentication portal experience is now in public preview |
+| 2020.12.22 | 生态链支持 | RabbitMQ Extension for Windows and Linux is now generally available |
 | 2020.12.09 | 开发者工具 | Java Azure Functions support on Linux is now generally available |
 | 2020.11.18 | 编程语言支持 | Node.js 14 for Azure Functions is now available in public preview |
 | 2020.10.28 | 开发者工具 | Generate a new function app from an OpenAPI specification |
 | 2020.10.26 | 编程语言支持 | Java 11 support for Azure Functions is now generally available |
-| 2020.09.22 | 编程语言支持 | Blazor and C# APIs now supported in Azure Static Web Apps |
 | 2020.09.22 | 安全相关更新 | Azure Communication Services now available in public preview |
 | 2020.09.02 | Durable Function 更新 | Durable Functions v2.3 现已发布 |
 | 2020.08.19 | 编程语言支持 | PowerShell support in Durable Functions is in public preview |
-| 2020.07.21 | 编程语言支持 | Java 11 for Azure Functions 现已推出预览版 |
-| 2020.07.21 | 安全相关更新 | OpenID Connect support for Azure App Service and Azure Functions (in preview) |
 
 Azure 的改动也比较常规，除了对 Durable Function 的持续投入
 
@@ -40,7 +40,7 @@ Azure 的改动也比较常规，除了对 Durable Function 的持续投入
 | 微服务 | ![user-case3](./user-case3.png) |
 | 机器学习 | 具有无服务器体系结构的机器学习工作流 |
 | 数据处理 | ![user-case5](./user-case5.png) |
-| 云自动化 | ![user-case6](./user-case6.png) ||
+| 云自动化 | ![user-case6](./user-case6.png) |
 
 # 重点功能
 
