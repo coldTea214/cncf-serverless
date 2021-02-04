@@ -1,7 +1,11 @@
-开始学习之前，先看看本 repo 最近在干什么（截至 2020.12）
+开始学习之前，先看看本 repo 最近在干什么（截至 2021.01）
 
 # serving
 
+* [0.20.0](https://github.com/knative/serving/releases/tag/v0.20.0) [2021.01]
+	* A feature flag is now available to enable hostAliases for Knative Services
+	* Add AutoTLS support for DomainMapping
+	* Gradual traffic rollout of the configuration targets is now available
 * [0.19.0](https://github.com/knative/serving/releases/tag/v0.19.0) [2020.11]
 	* Adds a Scale Down Delay feature
 	* Adding cluster-wide flag max-scale-limit
@@ -20,17 +24,17 @@
 		* Net-contour is moved to stable stage
 		* Allow disabling AutoTLS with an annotation
 * [0.17.0](https://github.com/knative/serving/releases/tag/v0.17.0) [2020.08]
-* [0.16.0](https://github.com/knative/serving/releases/tag/v0.16.0) [2020.07]
 
 # eventing
 
-* [0.19.0](https://github.com/knative/eventing/releases/tag/v0.19.0)
+* [0.20.0](https://github.com/knative/eventing/releases/tag/v0.20.0) [2021.01]
+	* 没啥 new feature
+* [0.19.0](https://github.com/knative/eventing/releases/tag/v0.19.0) [2020.11]
 	* 没啥 new feature，主要是 bug fix 和现有功能的 update
 * [0.18.0](https://github.com/knative/eventing/releases/tag/v0.18.0) [2020.09]
 	* Allow MTChannelBroker TTL to be configured via ENV variable
 	* PingSource adapter now uses bucket-based leader election
 	* PingSource adapter deployment can now be customized at installation time
 * [0.17.0](https://github.com/knative/eventing/releases/tag/v0.17.0) [2020.08]
-* [0.16.0](https://github.com/knative/eventing/releases/tag/v0.16.0) [2020.07]
 
-serving、eventing 实际更新的内容比较多，全量更新可以自行点击链接确认
+serving、eventing 整体的框架比较稳定，近期也没有太大变动

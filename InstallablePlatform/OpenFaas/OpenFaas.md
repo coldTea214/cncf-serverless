@@ -1,10 +1,10 @@
-本文基于 [OpenFaas](https://github.com/openfaas/faas/tree/0.18.18) v0.18.18 版本和 [faas-netes](https://github.com/openfaas/faas-netes/tree/0.12.2) v0.12.2 版本
+本文主要基于 [OpenFaas](https://github.com/openfaas/faas/tree/0.18.18) v0.18.18 版本和 [faas-netes](https://github.com/openfaas/faas-netes/tree/0.12.2) v0.12.2 版本
 
 [官方文档](https://docs.openfaas.com/)
 
 # 最近 release
 
-开始学习之前，先看看本 repo 最近在干什么（截至 2020.12）:
+开始学习之前，先看看本 repo 最近在干什么（截至 2021.01）:
 
 ## OpenFaas
 

@@ -1,10 +1,10 @@
-本文基于 [Fission](https://github.com/fission/fission/tree/v1.10.0) v1.10.0 版本
+本文主要基于 [Fission](https://github.com/fission/fission/tree/v1.10.0) v1.10.0 版本
 
 [官方文档](https://docs.fission.io/docs/releases/1.10.0/)
 
 # 最近 release
 
-开始学习之前，先看看本 repo 最近在干什么（截至 2020.12），release note：https://docs.fission.io/docs/releases/
+开始学习之前，先看看本 repo 最近在干什么（截至 2021.01），release note：https://docs.fission.io/docs/releases/
 
 * 1.11.2 [2020.10]
 	* Concurrency in PoolManager

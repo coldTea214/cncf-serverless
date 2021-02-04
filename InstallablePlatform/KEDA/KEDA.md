@@ -1,11 +1,15 @@
-本文基于 [KEDA](https://github.com/kedacore/keda/tree/v1.5.0) v1.5.0 版本
+本文主要基于 [KEDA](https://github.com/kedacore/keda/tree/v1.5.0) v1.5.0 版本
 
 [官方文档](https://keda.sh/docs/1.5/)
 
 # 最近 release
 
-开始学习之前，先看看本 repo 最近在干什么（截至 2020.12）：
+开始学习之前，先看看本 repo 最近在干什么（截至 2021.01）：
 
+* 2.1.0 [2021.01]
+	* Introduction of ClusterTriggerAuthentication for cluster-wide trigger authentication
+	* Introducing new InfluxDB, MongoDB & OpenStack Swift scaler
+	* Support for Redis clusters
 * 2.0.0 [2020.11]
 	* Introduce Azure Log Analytics scaler
 	* Introduce scaling any CustomResource that implements Scale subresource
@@ -15,10 +19,6 @@
 	* Introduce Active MQ Artemis scaler
 	* Introduce Redis Streams scaler
 	* Introduce Cron scaler
-* 1.4.0 [2020.04]
-	* Fix scalers leaking
-	* Extend RabbitMQ scaler to support count unacked messages
-	* Handle nil pointers and empty arrays properly in Azure Monitor Scaler
 
 KEDA 功能较为简单，目前的更新主要是丰富 scaler 和代码优化、修复
 
