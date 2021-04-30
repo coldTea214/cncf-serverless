@@ -34,19 +34,18 @@ AWS Lambda 功能[原文描述](https://aws.amazon.com/cn/lambda/features/)，�
 
 # 产品更新
 
-实在是没找到 Lambda 相关的 release note，这里只能退而求其次，从开发人员指南的更新来反推 Lambda 功能改动。开发人员指南 release note：https://docs.aws.amazon.com/zh_cn/lambda/latest/dg/lambda-releases.html
+没找到 Lambda 相关的 release note，退而求其次，从开发人员指南的更新来反推 Lambda 功能改动。开发人员指南 release note：https://docs.aws.amazon.com/lambda/latest/dg/lambda-releases.html
 
-截至 2021.01，相关的更新可以归纳为：
+截至 2021.04，相关的更新可以归纳为：
 
 | 更新时间 | 更新内容 | 具体 |
 |---------|--------|-----|
-| 2020.10.08 | 函数集成外部服务 | 可以使用 Lambda 合作伙伴提供的扩展 |
-| 2020.08.12 | 编程语言支持 | 在 AL2 上支持 Java 8 和 自定义运行时 |
-| 2020.08.11 | ASW 服务事件源 | 可提供 Amazon Managed Streaming for Apache Kafka 的新事件源 |
-| 2020.08.10 | 安全相关更新 | 用于 Amazon VPC 设置的 IAM 条件键 |
-| 2020.07.07 | 函数集成 AWS 服务 | Kinesis HTTP/2 流使用者的并发设置 |
-
-AWS 近期的改动总体比较常规，基本都是为了更好的支持开发者以及融入 AWS 生态相关
+| 2021.03.02 | 功能优化 | The Lambda console has been redesigned to improve performance and consistency |
+| 2021.01.27 | 编程语言支持 | Lambda now supports a new runtime for Node.js 14 |
+| 2020.12.01 | 新增功能 | Lambda now supports functions defined as container images |
+| 2020.11.05 | 集成 AWS 服务 | Lambda now supports Amazon MQ as an event source |
+| 2020.10.08 | 函数集成外部服务 | Use Lambda extensions to augment your Lambda functions |
+| 2020.08.11 | 集成 AWS 服务 | Lambda now supports Amazon MSK as an event source |
 
 # 使用场景
 

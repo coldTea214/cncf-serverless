@@ -1,4 +1,4 @@
-首先要说明的是，虽然华为在 cncf landscape 里写的是 FunctionStage（21年01月），不过官网上注明：
+首先要说明的是，虽然华为在 cncf landscape 里写的是 FunctionStage（21年04月），不过官网上注明：
 
 > 原函数服务FunctionStage和原函数工作流FunctionGraph两个服务已合并成一个新的服务，即函数工作流FunctionGraph
 
@@ -33,9 +33,15 @@ FunctionStage 相关页面内容已有段时间没有更新了，下文以 Funct
 
 # 产品更新
 
-截至 2021.01，华为 FunctionGraph release note：
+华为 FunctionGraph release note：https://support.huaweicloud.com/wtsnew-functiongraph/
 
-![release-note](./release.png)
+截至 2021.04，相关的更新可以归纳为：
+
+| 更新时间 | 更新内容 | 具体 |
+|---------|--------|-----|
+| 2020.07 | 编程语言支持 | 支持 GO 1.x 新版本 |
+| 2020.06 | 新增功能 | 支持预留实例 |
+| 2020.05 | 编程语言支持 | 支持 node.js 10 和 node.js 12 |
 
 # 使用场景
 
