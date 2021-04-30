@@ -4,8 +4,12 @@
 
 # 最近 release
 
-开始学习之前，先看看本 repo 最近在干什么（截至 2021.01）：
+开始学习之前，先看看本 repo 最近在干什么（截至 2021.04），release note: https://github.com/kedacore/keda/blob/main/CHANGELOG.md：
 
+* 2.2.0 [2021.03]
+	* Emit Kubernetes Events on KEDA events
+	* Support Quantities in Metrics API scaler
+	* Add Microsoft SQL Server (MSSQL) scaler
 * 2.1.0 [2021.01]
 	* Introduction of ClusterTriggerAuthentication for cluster-wide trigger authentication
 	* Introducing new InfluxDB, MongoDB & OpenStack Swift scaler

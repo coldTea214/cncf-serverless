@@ -15,20 +15,19 @@ Installable Platform 是一些开源的 serverless 平台 or 增强组件。包�
 * [Riff](https://projectriff.io/)：[项目地址](https://github.com/projectriff/riff)，这是一个基于 knative 的 faas 项目，提供了 cli，用于安装 knative 和其上部署函数，生成函数 invoker 等等
 * [Virtual Kubelet](https://github.com/virtual-kubelet)：[项目地址](https://github.com/virtual-kubelet/virtual-kubelet)，通过类 kubelet api，让人可以定制 node agent，屏蔽实际节点，将请求转发至 serverless 容器平台，如 ACI 和 Fargate
 
-其中，通用的 serverless 平台包括 Apache OpenWhisk、Fission、Kubeless 和 OpenFaas，这里先对这几个项目以及 KEDA、Knative 简单对比一下（截止 2021.01）：
+其中，通用的 serverless 平台包括 Apache OpenWhisk、Fission、Kubeless 和 OpenFaas，这里先对这几个项目以及 KEDA、Knative 简单对比一下（截止 2021.04）：
 
 | 项目 | 创立时间 | Star 数 | 主要语言 | 最新 release |
 |-----|---------|--------|---------|------------- |
-| Apache OpenWhisk | 2016.02 | 5.1k | Scala | 1.0.0(2020.11) |
-| Fission | 2016.08 | 5.9k | Go | 1.11.2(2020.10) |
-| [Fission 子项目] fission-workflows | 2017.07 | 303 | Go | 0.6.0(2018.10) |
-| Kubeless | 2016.11 | 6.3k | Go | 1.0.8(2021.01) |
-| OpenFaas | 2016.12 | 19.2k | Go | 0.20.7(2021.01) |
-| [OpenFaas 子项目] faas-netes | 2017.07 | 1.7k | Go | 0.12.15(2021.01) |
-| [OpenFaas 子项目][deprecated] faas-idler | 2018.05 | 59 | Go | 0.4.0(2020.11) |
-| KEDA | 2019.02 | 2.8k | Go | 2.1.0(2021.01) |
-| Knative/serving | 2018.01 | 3.6k | Go | 0.20.0(2021.01) |
-| Knative/eventing | 2018.03 | 955 | Go | 0.20.1(2021.01) |
+| Apache OpenWhisk | 2016.02 | 5.3k | Scala | 1.0.0(2020.11) |
+| Fission | 2016.08 | 6.1k | Go | 1.12.0(2021.02) |
+| [Fission 子项目] fission-workflows | 2017.07 | 313 | Go | 0.6.0(2018.10) |
+| Kubeless | 2016.11 | 6.5k | Go | 1.0.8(2021.01) |
+| OpenFaas | 2016.12 | 19.7k | Go | 0.20.12(2021.03) |
+| [OpenFaas 子项目] faas-netes | 2017.07 | 1.7k | Go | 0.13.2(2021.03) |
+| KEDA | 2019.02 | 3.1k | Go | 2.2.0(2021.03) |
+| Knative/serving | 2018.01 | 3.7k | Go | 0.22.0(2021.04) |
+| Knative/eventing | 2018.03 | 991 | Go | 0.22.1(2021.04) |
 
 下面，针对通用的 serverless 平台和 KEDA、Knative 项目，再展开说明
 

@@ -4,7 +4,7 @@
 
 # 最近 release
 
-开始学习之前，先看看本 repo 最近在干什么（截至 2021.01）:
+开始学习之前，先看看本 repo 最近在干什么（截至 2021.04）:
 
 ## OpenFaas
 
@@ -21,6 +21,8 @@
 
 ##  faas-netes
 
+* 0.13.0 [2021.02]
+	* Update provider to v0.17.0
 * 0.12.0 [2020.07]
 	* Create new Policy client and type so that we can read Policy
 configurations
