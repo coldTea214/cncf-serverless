@@ -34,17 +34,18 @@ AWS Lambda 功能[原文描述](https://aws.amazon.com/cn/lambda/features/)，�
 
 # 产品更新
 
-没找到 Lambda 相关的 release note，退而求其次，从开发人员指南的更新来反推 Lambda 功能改动。开发人员指南 release note：https://docs.aws.amazon.com/lambda/latest/dg/lambda-releases.html
+AWS Lambda release note：https://docs.aws.amazon.com/lambda/latest/dg/lambda-releases.html
 
-截至 2021.04，相关的更新可以归纳为：
+截至 2021.06，相关的更新可以归纳为：
 
 | 更新时间 | 更新内容 | 具体 |
 |---------|--------|-----|
+| 2021.06.29 | 安全相关 | SASL/PLAIN authentication for self-managed Kafka on Lambda |
+| 2021.05.24 | 函数集成外部服务 | Use extensions to augment your Lambda functions |
 | 2021.03.02 | 功能优化 | The Lambda console has been redesigned to improve performance and consistency |
 | 2021.01.27 | 编程语言支持 | Lambda now supports a new runtime for Node.js 14 |
 | 2020.12.01 | 新增功能 | Lambda now supports functions defined as container images |
 | 2020.11.05 | 集成 AWS 服务 | Lambda now supports Amazon MQ as an event source |
-| 2020.10.08 | 函数集成外部服务 | Use Lambda extensions to augment your Lambda functions |
 | 2020.08.11 | 集成 AWS 服务 | Lambda now supports Amazon MSK as an event source |
 
 # 使用场景

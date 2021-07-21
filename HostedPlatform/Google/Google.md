@@ -16,10 +16,11 @@ Google cloud functions 功能（[原文描述](https://cloud.google.com/function
 
 Google cloud functions release note：https://cloud.google.com/functions/docs/release-notes
 
-截至 2021.04，相关的更新可以归纳为：
+截至 2021.06，相关的更新可以归纳为：
 
 | 更新时间 | 更新内容 | 具体 |
 |---------|--------|-----|
+| 2021.06.07 | 编程语言支持 | Cloud Functions now supports Ruby 2.6 and 2.7 at the General Availability release level |
 | 2021.04.19 | 编程语言支持 | Cloud Functions has added support for a new runtime, PHP 7.4, in Preview. |
 | 2021.01.11 | 编程语言支持 | Cloud Functions has added support for a new runtime, Ruby, in Preview |
 | 2020.11.19 | 编程语言支持 | Cloud Functions has added support for a new runtime, .NET |

@@ -14,10 +14,12 @@ Azure Functions 功能（[原文描述](https://azure.microsoft.com/zh-cn/servic
 
 Azure Functions release note：https://azure.microsoft.com/zh-cn/updates/?product=functions
 
-截至 2021.04，相关的更新可以归纳为：
+截至 2021.06，相关的更新可以归纳为：
 
 | 更新时间 | 更新内容 | 具体 |
 |---------|--------|-----|
+| 2021.06.03 | 安全相关 | Identity-based connections in Azure Functions with latest Azure SDK triggers and bindings |
+| 2021.05.26 | 有状态相关 | PowerShell support in Durable Functions is now generally available |
 | 2021.03.10 | 编程语言支持 | Python Durable Functions support in Azure Functions is now generally available |
 | 2021.02.10 | 功能优化 | Versions no longer required for Key Vault references in App Service and Azure Functions |
 | 2021.01.25 | 编程语言支持 | Python 3.9 in Azure Functions is now in public preview |
