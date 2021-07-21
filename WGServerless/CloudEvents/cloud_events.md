@@ -1,5 +1,7 @@
 [官方地址](https://cloudevents.io/)
 
+截至 2021.06，规范更新到了 1.0.1 版本
+
 # release 1.0.1
 
 2020.12.10 发布了1.0.1版本规范：[1.0.1 specification](https://github.com/cloudevents/spec/blob/v1.0.1/spec.md)。相比于1.0，增加了诸如 web socket 在内的一些补充、改动
