@@ -4,9 +4,13 @@
 
 # 最近 release
 
-开始学习之前，先看看本 repo 最近在干什么（截至 2021.04），release note：https://docs.fission.io/docs/releases/
+开始学习之前，先看看本 repo 最近在干什么（截至 2021.06），release note：https://docs.fission.io/docs/releases/
 
-* 1.12.0 [2020.02]
+* 1.13.1 [2021.06]
+	* Support for prefix-based routes for functions
+	* Support for multiple HTTP verbs for a function
+	* RequestsPerPod and OnceOnly fields are added for pool manager
+* 1.12.0 [2021.02]
 	* Support for Keda 2.0
 	* Multi-Architecture Build: you can deploy fission on ARM architecture
 * 1.11.2 [2020.10]

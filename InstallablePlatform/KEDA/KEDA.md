@@ -4,8 +4,12 @@
 
 # 最近 release
 
-开始学习之前，先看看本 repo 最近在干什么（截至 2021.04），release note: https://github.com/kedacore/keda/blob/main/CHANGELOG.md：
+开始学习之前，先看看本 repo 最近在干什么（截至 2021.06），release note: https://github.com/kedacore/keda/blob/main/CHANGELOG.md：
 
+* 2.3.0 [2021.05]
+	* Add Azure Pipelines Scaler
+	* Add OpenStack Metrics Scaler
+	* Added basic, tls and bearer authentication support to the Prometheus scaler
 * 2.2.0 [2021.03]
 	* Emit Kubernetes Events on KEDA events
 	* Support Quantities in Metrics API scaler
